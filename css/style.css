@@ -374,6 +374,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   background: linear-gradient(160deg, rgba(26,50,40,0.88), rgba(30,60,48,0.92)),
               url('https://cashinflash.com/wp-content/uploads/2026/02/Group-1707490245-2.png') center/cover no-repeat;
   background-color: #1e3a2f;
+  overflow: hidden;
 }
 .social-proof .section-heading { margin-bottom: 48px; color: #fff; }
 .social-proof .underline-accent { color: #14e56b; }
@@ -410,6 +411,31 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .proof-icon img { margin: 0 auto; filter: brightness(0) invert(1); }
 .proof-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
 .proof-card p { color: rgba(255,255,255,.75); font-size: .9rem; }
+.proof-grid { position: relative; z-index: 1; }
+.social-proof .section-heading { position: relative; z-index: 1; }
+
+/* Social-proof blobs */
+.social-proof::before,
+.social-proof::after {
+  content: '';
+  position: absolute;
+  background: rgba(21,193,93,.05);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlob 10s ease-in-out infinite;
+}
+.social-proof::before {
+  width: 200px; height: 200px;
+  top: -50px; right: -30px;
+  border-radius: 50%;
+  animation-delay: -2s;
+}
+.social-proof::after {
+  width: 150px; height: 130px;
+  bottom: -40px; left: -20px;
+  border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+  animation-delay: -6s;
+}
 
 /* ---------- 5. FEATURES ---------- */
 .features {
@@ -680,7 +706,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .education-cta { text-align: center; margin-top: 40px; }
 
 /* ---------- 9. FAQ ---------- */
-.faq { padding: 80px 0; }
+.faq { padding: 80px 0; position: relative; overflow: hidden; }
 .faq-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -725,6 +751,21 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   color: #555;
   line-height: 1.7;
 }
+.faq-grid { position: relative; z-index: 1; }
+
+/* FAQ blob */
+.faq::before {
+  content: '';
+  position: absolute;
+  width: 200px; height: 180px;
+  bottom: -50px; right: -30px;
+  background: rgba(21,193,93,.04);
+  border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlob 11s ease-in-out infinite;
+  animation-delay: -3s;
+}
 
 /* ---------- 10. BRAND MARQUEE ---------- */
 .marquee {
@@ -753,7 +794,23 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   background: linear-gradient(160deg, #1a1a2e 0%, #0f0f1e 100%);
   color: #fff;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
+/* Pre-footer blob */
+.pre-footer::before {
+  content: '';
+  position: absolute;
+  width: 180px; height: 160px;
+  top: -40px; left: -20px;
+  background: rgba(21,193,93,.05);
+  border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlob 9s ease-in-out infinite;
+  animation-delay: -4s;
+}
+.pre-footer-inner { position: relative; z-index: 1; }
 .pre-footer-inner img { margin: 0 auto 24px; }
 .pre-footer h2 { font-size: 2.25rem; font-weight: 700; margin-bottom: 32px; }
 
@@ -916,6 +973,12 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
   /* Footer links: touch-friendly */
   .footer-col a { min-height: 44px; display: inline-flex; align-items: center; }
+
+  /* Resize new blobs for tablet */
+  .social-proof::before { width: 140px; height: 140px; }
+  .social-proof::after { width: 110px; height: 100px; }
+  .faq::before { width: 140px; height: 130px; }
+  .pre-footer::before { width: 130px; height: 110px; }
 }
 
 /* Mobile */
@@ -934,10 +997,17 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   /* Underline: tighter on small screens */
   .underline-accent::after { bottom: -3px; height: 4px; }
 
-  /* Hide decorative blobs on small screens */
-  .how-it-works::before, .how-it-works::after,
-  .education::before,
-  .app-promo::after { display: none; }
+  /* Resize decorative blobs on small screens instead of hiding */
+  .how-it-works::before { width: 100px; height: 100px; top: -30px; right: -20px; }
+  .how-it-works::after { width: 80px; height: 70px; bottom: -20px; left: -15px; }
+  .education::before { width: 100px; height: 100px; top: -40px; left: -25px; }
+  .app-promo::after { width: 90px; height: 90px; bottom: -30px; right: 0; }
+
+  /* Resize new blobs for mobile */
+  .social-proof::before { width: 90px; height: 90px; top: -25px; right: -15px; }
+  .social-proof::after { width: 70px; height: 60px; bottom: -20px; left: -10px; }
+  .faq::before { width: 90px; height: 80px; bottom: -25px; right: -15px; }
+  .pre-footer::before { width: 80px; height: 70px; top: -20px; left: -10px; }
 
   /* FAQ: ensure touch targets */
   .faq-item summary { min-height: 48px; }
