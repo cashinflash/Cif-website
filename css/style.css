@@ -473,21 +473,58 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
 /* ---------- 6. APP PROMO ---------- */
 .app-promo {
+  position: relative;
   background: linear-gradient(160deg, #1a3a2e 0%, #122e22 40%, #0a1f16 100%);
   color: #fff;
   padding: 100px 0;
   text-align: center;
   overflow: hidden;
 }
-.app-promo-inner { max-width: 900px; margin: 0 auto; }
+/* Radial center glow */
+.app-promo::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 80%; height: 60%;
+  background: radial-gradient(ellipse at center, rgba(21,193,93,.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Floating accent blob */
+.app-promo::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: 5%;
+  width: 200px; height: 200px;
+  background: rgba(21,193,93,.06);
+  border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+  animation: floatBlob 10s ease-in-out infinite;
+  animation-delay: -3s;
+  pointer-events: none;
+  z-index: 0;
+}
+.app-promo-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
 .app-screenshot {
+  position: relative;
   margin: 0 auto 48px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.92);
-  padding: 16px 40px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.2);
-  max-width: 700px;
-  overflow: visible;
+  max-width: 650px;
+}
+.app-screenshot img {
+  position: relative;
+  z-index: 2;
+}
+/* White lozenge shape behind the image */
+.app-screenshot::before {
+  content: '';
+  position: absolute;
+  left: 5%; right: 5%;
+  top: 30%;
+  bottom: -5%;
+  background: rgba(255,255,255,.9);
+  border-radius: 200px;
+  z-index: 1;
+  box-shadow: 0 10px 40px rgba(0,0,0,.15);
 }
 .app-promo h2 {
   font-size: clamp(2rem, 5vw, 2.75rem);
