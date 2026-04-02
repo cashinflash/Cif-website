@@ -31,9 +31,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .underline-accent::after {
   content: '';
   position: absolute;
-  left: 0; bottom: -6px;
-  width: 100%; height: 12px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M3 7 Q40 6, 100 6.5 Q160 7, 197 6.2' stroke='%2315C15D' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  left: 0; bottom: -4px;
+  width: 100%; height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M2 7.5 Q50 7, 100 7.3 Q150 7.6, 198 7' stroke='%2315C15D' stroke-width='8' fill='none' stroke-linecap='round'/%3E%3Cpath d='M3 7.8 Q70 7.2, 130 7.6 Q175 7.1, 197 7.4' stroke='%2315C15D' stroke-width='5' fill='none' stroke-linecap='round' opacity='0.5'/%3E%3C/svg%3E");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   opacity: 1;
@@ -472,23 +472,62 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
 /* ---------- 6. APP PROMO ---------- */
 .app-promo {
-  background: #1a1a2e;
+  background: linear-gradient(160deg, #1a3a2e 0%, #122e22 40%, #0a1f16 100%);
   color: #fff;
-  padding: 80px 0;
+  padding: 100px 0;
   text-align: center;
   overflow: hidden;
 }
-.app-promo-inner { max-width: 800px; margin: 0 auto; }
-.app-screenshot { margin: 0 auto 32px; border-radius: 12px; }
-.app-promo h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; margin-bottom: 12px; }
+.app-promo-inner { max-width: 900px; margin: 0 auto; }
+.app-screenshot {
+  margin: 0 auto 48px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.95);
+  padding: 24px 32px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  max-width: 800px;
+}
+.app-promo h2 {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
 .app-promo .underline-accent::after { opacity: 1; }
-.app-promo p { color: rgba(255,255,255,.7); margin-bottom: 24px; }
+.app-promo p { color: rgba(255,255,255,.75); margin-bottom: 28px; font-size: 1.05rem; }
 .app-cta { margin-bottom: 32px; }
-.app-note { font-size: .75rem; color: rgba(255,255,255,.5); margin-top: 8px; }
+.app-note { font-size: .8rem; color: rgba(255,255,255,.5); margin-top: 12px; font-style: italic; }
 .app-mobile-img { display: none; }
 
 /* ---------- 7. HOW IT WORKS ---------- */
-.how-it-works { padding: 80px 0; }
+.how-it-works {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+}
+.how-it-works::before {
+  content: '';
+  position: absolute;
+  width: 220px; height: 220px;
+  top: -60px; right: -40px;
+  background: rgba(21,193,93,.05);
+  border-radius: 50%;
+  z-index: 0;
+  animation: floatBlob 10s ease-in-out infinite;
+  animation-delay: -2s;
+}
+.how-it-works::after {
+  content: '';
+  position: absolute;
+  width: 160px; height: 140px;
+  bottom: -40px; left: -30px;
+  background: rgba(21,193,93,.04);
+  border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
+  z-index: 0;
+  animation: floatBlob 12s ease-in-out infinite;
+  animation-delay: -6s;
+}
+.how-grid { position: relative; z-index: 1; }
 .how-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -545,8 +584,21 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
 /* ---------- 8. EDUCATION CAROUSEL ---------- */
 .education {
+  position: relative;
   padding: 80px 0;
   background: #f0faf4;
+  overflow: hidden;
+}
+.education::before {
+  content: '';
+  position: absolute;
+  width: 240px; height: 240px;
+  top: -80px; left: -50px;
+  background: rgba(21,193,93,.06);
+  border-radius: 50%;
+  z-index: 0;
+  animation: floatBlob 11s ease-in-out infinite;
+  animation-delay: -4s;
 }
 .education .section-heading { text-align: center; }
 .education .section-sub { text-align: center; margin: 0 auto 40px; }
