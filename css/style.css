@@ -374,7 +374,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   background-color: #1e3a2f;
 }
 .social-proof .section-heading { margin-bottom: 48px; color: #fff; }
-.social-proof .underline-accent { color: #fff; }
+.social-proof .underline-accent { color: #14e56b; }
 .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .proof-card {
   padding: 40px 28px;
