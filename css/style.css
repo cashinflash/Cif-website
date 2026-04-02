@@ -906,6 +906,16 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .btn-apply { min-height: 48px; }
   .btn-login { min-height: 48px; }
   .btn-store { min-height: 48px; }
+
+  /* Underline: slightly smaller on tablet */
+  .underline-accent::after { bottom: -4px; height: 5px; }
+
+  /* Carousel dots: larger for touch */
+  .carousel-dots .dot { width: 14px; height: 14px; }
+  .carousel-dots { gap: 10px; }
+
+  /* Footer links: touch-friendly */
+  .footer-col a { min-height: 44px; display: inline-flex; align-items: center; }
 }
 
 /* Mobile */
@@ -919,7 +929,18 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .social-proof { padding: 48px 0; }
   .social-proof .section-heading { margin-bottom: 32px; }
 
-  .app-promo h2 { font-size: clamp(1.3rem, 4.5vw, 2rem); }
+  .app-promo h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+
+  /* Underline: tighter on small screens */
+  .underline-accent::after { bottom: -3px; height: 4px; }
+
+  /* Hide decorative blobs on small screens */
+  .how-it-works::before, .how-it-works::after,
+  .education::before,
+  .app-promo::after { display: none; }
+
+  /* FAQ: ensure touch targets */
+  .faq-item summary { min-height: 48px; }
 
   .step-card { flex-direction: column; text-align: center; gap: 12px; padding: 20px; }
   .step-card > img { width: 56px; height: 56px; }
