@@ -32,8 +32,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .underline-accent::after {
   content: '';
   position: absolute;
-  left: 0; bottom: -6px;
-  width: 100%; height: 12px;
+  left: 0; bottom: -5px;
+  width: 100%; height: 8px;
   background: url("https://cashinflash.com/wp-content/uploads/2026/02/Vector-2139.png") no-repeat center;
   background-size: 100% 100%;
   z-index: -1;
