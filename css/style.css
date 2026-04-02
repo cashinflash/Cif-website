@@ -31,11 +31,12 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .underline-accent::after {
   content: '';
   position: absolute;
-  left: 0; bottom: -2px;
-  width: 100%; height: 8px;
-  background: #15C15D;
-  border-radius: 4px;
-  opacity: .35;
+  left: -2%; bottom: -4px;
+  width: 104%; height: 14px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 14' preserveAspectRatio='none'%3E%3Cpath d='M3 9C15 5,30 11,50 7S80 3,100 8S140 12,160 6S180 4,197 8' stroke='%2315C15D' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: 1;
   z-index: -1;
 }
 
@@ -318,7 +319,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   background-color: #1e3a2f;
 }
 .social-proof .section-heading { margin-bottom: 48px; color: #fff; }
-.social-proof .underline-accent::after { opacity: .6; }
+.social-proof .underline-accent::after { opacity: 1; }
 .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .proof-card {
   padding: 40px 28px;
@@ -331,6 +332,19 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   box-shadow: 0 4px 30px rgba(0,0,0,.15);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease, background .3s ease;
+}
+.proof-card.glass:hover {
+  transform: scale(1.04) translateY(-4px);
+  background: rgba(255,255,255,.14);
+  border-color: rgba(255,255,255,.3);
+  box-shadow: 0 8px 40px rgba(21,193,93,.15), 0 4px 30px rgba(0,0,0,.2);
+}
+@media (hover: none) {
+  .proof-card.glass:active {
+    transform: scale(0.97);
+    transition-duration: .1s;
+  }
 }
 @supports not (backdrop-filter: blur(16px)) {
   .proof-card.glass { background: rgba(40,70,55,.75); }
@@ -388,7 +402,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .app-promo-inner { max-width: 800px; margin: 0 auto; }
 .app-screenshot { margin: 0 auto 32px; border-radius: 12px; }
 .app-promo h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; margin-bottom: 12px; }
-.app-promo .underline-accent::after { opacity: .5; }
+.app-promo .underline-accent::after { opacity: 1; }
 .app-promo p { color: rgba(255,255,255,.7); margin-bottom: 24px; }
 .app-cta { margin-bottom: 32px; }
 .app-note { font-size: .75rem; color: rgba(255,255,255,.5); margin-top: 8px; }
