@@ -1008,6 +1008,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   font-size: .85rem;
   color: #555;
   margin-bottom: 8px;
+  text-align: center;
 }
 .calc-amount {
   font-size: 2rem;
@@ -1074,7 +1075,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .calc-row span:last-child { font-weight: 600; color: #1a1a2e; }
 .calc-total { font-size: 1.05rem; }
 .calc-total span:last-child { color: #15C15D; font-weight: 700; }
-.calc-due span:last-child { font-size: .85rem; font-weight: 500; line-height: 1.3; }
+.calc-due span:last-child { font-size: .85rem; font-weight: 500; line-height: 1.3; text-align: center; }
 .calc-due small { font-size: .75rem; color: #999; font-weight: 400; }
 .calc-divider {
   height: 1px;
@@ -1175,7 +1176,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .composite-logo {
   height: 22px;
   width: auto;
-  margin-bottom: 14px;
+  display: block;
+  margin: 0 auto 14px;
 }
 .composite-heading {
   font-size: 1.3rem;

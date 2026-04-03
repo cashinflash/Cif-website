@@ -140,6 +140,7 @@
   // ---------- Payday Loan Calculator ----------
   var calcSlider = document.getElementById('calc-slider');
   if (calcSlider) {
+    var AMOUNTS = [100, 125, 150, 175, 200, 225, 255];
     var FEE_RATE = 0.176; // 17.6% of loan amount
     var calcAmount = document.getElementById('calc-amount');
     var calcLoan = document.getElementById('calc-loan');
@@ -148,10 +149,11 @@
     var calcCta = document.getElementById('calc-cta');
 
     function updateCalc() {
-      var amount = Number(calcSlider.value);
+      var idx = Number(calcSlider.value);
+      var amount = AMOUNTS[idx];
       var fee = amount * FEE_RATE;
       var total = amount + fee;
-      var fill = ((amount - 100) / (255 - 100)) * 100;
+      var fill = (idx / (AMOUNTS.length - 1)) * 100;
 
       calcAmount.textContent = '$' + amount;
       calcLoan.textContent = '$' + amount.toFixed(2);
