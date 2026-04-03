@@ -542,8 +542,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .features {
   position: relative;
   padding: 80px 0;
-  background: linear-gradient(180deg, #fff 0%, #f0faf4 100%);
-  overflow: hidden;
+  background: linear-gradient(180deg, #f0faf4 0%, #f7fdf9 50%, #f0faf4 100%);
+  overflow: visible;
 }
 .features::before,
 .features::after {
@@ -554,16 +554,27 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   animation: floatBlob 9s ease-in-out infinite;
 }
 .features::before {
-  width: 280px; height: 280px;
-  top: -80px; left: -60px;
+  width: 350px; height: 350px;
+  top: -100px; left: -80px;
   border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
   animation-delay: -1s;
 }
 .features::after {
-  width: 200px; height: 180px;
-  bottom: -40px; right: -30px;
+  width: 260px; height: 240px;
+  bottom: -60px; right: -50px;
   border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
   animation-delay: -4s;
+}
+.features-blob {
+  position: absolute;
+  width: 200px; height: 200px;
+  top: 50%; right: -60px;
+  background: rgba(21,193,93,.06);
+  border-radius: 50% 40% 60% 30% / 40% 50% 30% 60%;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlob 11s ease-in-out infinite;
+  animation-delay: -3s;
 }
 .features-grid { position: relative; z-index: 1; }
 .features-grid {
@@ -1114,11 +1125,40 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 /* Page hero — shorter variant for inner pages */
 .page-hero {
   padding: 60px 0 80px;
-  background: linear-gradient(180deg, #f0faf4 0%, #e8f5ee 40%, #fff 100%);
+  background: linear-gradient(180deg, #f0faf4 0%, #e8f5ee 40%, #f0faf4 100%);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+}
+.page-hero-blob-1,
+.page-hero-blob-2,
+.page-hero-blob-3 {
+  position: absolute;
+  background: rgba(21,193,93,.06);
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlob 10s ease-in-out infinite;
+}
+.page-hero-blob-1 {
+  width: 300px; height: 300px;
+  bottom: -120px; left: -80px;
+  border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  animation-delay: -2s;
+}
+.page-hero-blob-2 {
+  width: 180px; height: 180px;
+  top: 20%; right: -40px;
+  border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+  animation-delay: -5s;
+}
+.page-hero-blob-3 {
+  width: 140px; height: 140px;
+  top: 40%; left: 35%;
+  border-radius: 50% 30% 60% 40% / 40% 60% 30% 60%;
+  animation-delay: -8s;
 }
 .page-hero .hero-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
@@ -1129,14 +1169,14 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .features-composite {
   position: relative;
   width: 100%;
-  max-width: 540px;
 }
 .composite-photo {
   width: 62%;
-  min-height: 360px;
+  min-height: 420px;
   object-fit: cover;
   border-radius: 20px;
   display: block;
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
 }
 .composite-phone {
   position: absolute;
