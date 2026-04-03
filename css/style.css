@@ -1129,21 +1129,21 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .features-composite {
   position: relative;
   width: 100%;
-  max-width: 480px;
+  max-width: 540px;
 }
 .composite-photo {
-  width: 65%;
-  height: 100%;
+  width: 62%;
+  min-height: 360px;
   object-fit: cover;
   border-radius: 20px;
   display: block;
 }
 .composite-phone {
   position: absolute;
-  right: -8%;
+  right: -6%;
   top: 50%;
   transform: translateY(-50%);
-  width: 46%;
+  width: 52%;
   background: #1a1a2e;
   border-radius: 36px;
   padding: 6px 6px 8px;
@@ -1161,6 +1161,11 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   border-radius: 30px;
   padding: 24px 18px;
   text-align: center;
+}
+.composite-logo {
+  height: 22px;
+  width: auto;
+  margin-bottom: 14px;
 }
 .composite-heading {
   font-size: 1.3rem;
@@ -1304,6 +1309,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .composite-phone { position: static; transform: none; width: 55%; right: auto; top: auto; border-radius: 28px; box-shadow: 0 12px 36px rgba(0,0,0,.15); }
   .composite-phone-screen { border-radius: 22px; padding: 18px 14px; }
   .composite-phone-island { height: 18px; }
+  .composite-logo { height: 18px; margin-bottom: 10px; }
   .use-cases-grid { grid-template-columns: repeat(2, 1fr); }
   .requirements-grid { grid-template-columns: 1fr 1fr; }
   .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
@@ -1383,6 +1389,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .composite-phone { border-radius: 24px; padding: 5px 5px 6px; }
   .composite-phone-screen { padding: 14px 10px; border-radius: 18px; }
   .composite-phone-island { height: 14px; }
+  .composite-logo { height: 14px; margin-bottom: 8px; }
   .composite-heading { font-size: .9rem; margin-bottom: 10px; }
   .composite-illustration { padding: 14px; border-radius: 12px; margin-bottom: 10px; }
   .composite-subtext { font-size: .65rem; }
