@@ -926,6 +926,114 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
 /* ---------- INNER PAGES ---------- */
 
+/* Loan Calculator */
+.loan-calc {
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 8px 40px rgba(0,0,0,.1);
+  max-width: 400px;
+  width: 100%;
+}
+.loan-calc h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.calc-field { margin-bottom: 24px; }
+.calc-field label {
+  display: block;
+  font-size: .85rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+.calc-amount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #15C15D;
+  text-align: center;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+/* Range slider styling */
+.calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #15C15D var(--fill, 100%), #e5e5e5 var(--fill, 100%));
+  outline: none;
+  cursor: pointer;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #15C15D;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  cursor: pointer;
+  transition: transform .15s;
+}
+.calc-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.calc-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #15C15D;
+  border: 4px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  cursor: pointer;
+}
+.calc-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: .78rem;
+  color: #999;
+  margin-top: 6px;
+}
+/* Summary section */
+.calc-summary {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+.calc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: .9rem;
+  color: #555;
+}
+.calc-row span:last-child { font-weight: 600; color: #1a1a2e; }
+.calc-total { font-size: 1.05rem; }
+.calc-total span:last-child { color: #15C15D; font-weight: 700; }
+.calc-due span:last-child { font-size: .85rem; font-weight: 500; }
+.calc-divider {
+  height: 1px;
+  background: #e5e5e5;
+  margin: 4px 0;
+}
+.calc-cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  padding: 14px 24px;
+}
+.calc-disclaimer {
+  text-align: center;
+  font-size: .72rem;
+  color: #999;
+  margin-top: 12px;
+}
+
 /* Page hero — shorter variant for inner pages */
 .page-hero {
   padding: 60px 0 80px;
@@ -995,6 +1103,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .hero { padding: 48px 0 40px; }
   .page-hero { padding: 48px 0 40px; }
   .page-hero .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+  .loan-calc { max-width: 400px; margin: 0 auto; }
   .requirements-grid { grid-template-columns: 1fr 1fr; }
   .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
   .hero-checks { align-items: center; }
@@ -1066,6 +1175,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .social-proof .section-heading { margin-bottom: 32px; }
 
   .page-hero { padding: 40px 0 48px; }
+  .loan-calc { padding: 24px; }
+  .calc-amount { font-size: 2rem; }
+  .loan-calc h3 { font-size: 1.1rem; }
   .requirements { padding: 48px 0; }
   .requirements-grid { grid-template-columns: 1fr; }
 

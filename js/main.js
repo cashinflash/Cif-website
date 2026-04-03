@@ -136,4 +136,32 @@
     });
   });
 
+  // ---------- Payday Loan Calculator ----------
+  var calcSlider = document.getElementById('calc-slider');
+  if (calcSlider) {
+    var FEE_RATE = 15; // $15 per $100 borrowed (California rate)
+    var calcAmount = document.getElementById('calc-amount');
+    var calcLoan = document.getElementById('calc-loan');
+    var calcFee = document.getElementById('calc-fee');
+    var calcTotal = document.getElementById('calc-total');
+    var calcCta = document.getElementById('calc-cta');
+
+    function updateCalc() {
+      var amount = Number(calcSlider.value);
+      var fee = (amount / 100) * FEE_RATE;
+      var total = amount + fee;
+      var fill = ((amount - 100) / (255 - 100)) * 100;
+
+      calcAmount.textContent = '$' + amount;
+      calcLoan.textContent = '$' + amount.toFixed(2);
+      calcFee.textContent = '$' + fee.toFixed(2);
+      calcTotal.textContent = '$' + total.toFixed(2);
+      calcCta.textContent = 'Apply for $' + amount;
+      calcSlider.style.setProperty('--fill', fill + '%');
+    }
+
+    calcSlider.addEventListener('input', updateCalc);
+    updateCalc(); // Initialize on load
+  }
+
 })();
