@@ -139,7 +139,7 @@
   // ---------- Payday Loan Calculator ----------
   var calcSlider = document.getElementById('calc-slider');
   if (calcSlider) {
-    var FEE_RATE = 15; // $15 per $100 borrowed (California rate)
+    var FEE_RATE = 0.176; // 17.6% of loan amount
     var calcAmount = document.getElementById('calc-amount');
     var calcLoan = document.getElementById('calc-loan');
     var calcFee = document.getElementById('calc-fee');
@@ -148,7 +148,7 @@
 
     function updateCalc() {
       var amount = Number(calcSlider.value);
-      var fee = (amount / 100) * FEE_RATE;
+      var fee = amount * FEE_RATE;
       var total = amount + fee;
       var fill = ((amount - 100) / (255 - 100)) * 100;
 

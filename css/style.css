@@ -1014,7 +1014,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .calc-row span:last-child { font-weight: 600; color: #1a1a2e; }
 .calc-total { font-size: 1.05rem; }
 .calc-total span:last-child { color: #15C15D; font-weight: 700; }
-.calc-due span:last-child { font-size: .85rem; font-weight: 500; }
+.calc-due span:last-child { font-size: .85rem; font-weight: 500; line-height: 1.3; }
+.calc-due small { font-size: .75rem; color: #999; font-weight: 400; }
 .calc-divider {
   height: 1px;
   background: #e5e5e5;
