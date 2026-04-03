@@ -990,19 +990,19 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .loan-calc {
   background: #fff;
   border-radius: 20px;
-  padding: 32px;
+  padding: 24px 28px;
   box-shadow: 0 8px 40px rgba(0,0,0,.1);
   max-width: 400px;
   width: 100%;
 }
 .loan-calc h3 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #1a1a2e;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   text-align: center;
 }
-.calc-field { margin-bottom: 24px; }
+.calc-field { margin-bottom: 16px; }
 .calc-field label {
   display: block;
   font-size: .85rem;
@@ -1010,11 +1010,11 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   margin-bottom: 8px;
 }
 .calc-amount {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   color: #15C15D;
   text-align: center;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   line-height: 1;
 }
 /* Range slider styling */
@@ -1060,15 +1060,15 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .calc-summary {
   background: #f8f9fa;
   border-radius: 12px;
-  padding: 16px 20px;
-  margin-bottom: 20px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
 }
 .calc-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
-  font-size: .9rem;
+  padding: 6px 0;
+  font-size: .85rem;
   color: #555;
 }
 .calc-row span:last-child { font-weight: 600; color: #1a1a2e; }
@@ -1085,14 +1085,14 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   display: block;
   width: 100%;
   text-align: center;
-  font-size: 1rem;
-  padding: 14px 24px;
+  font-size: .95rem;
+  padding: 12px 20px;
 }
 .calc-disclaimer {
   text-align: center;
   font-size: .72rem;
   color: #999;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 /* Page hero — shorter variant for inner pages */
