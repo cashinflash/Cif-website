@@ -152,10 +152,11 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(8px);
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0,0,0,.12);
-  padding: 24px;
+  background: #1e3a2f;
+  border-top: 3px solid #15C15D;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.25);
+  padding: 28px 32px;
   min-width: 200px;
   opacity: 0;
   visibility: hidden;
@@ -174,19 +175,43 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   padding: 8px 12px;
   border-radius: 8px;
   font-size: .9rem;
-  transition: background .15s;
+  color: rgba(255,255,255,.85);
+  transition: background .15s, color .15s;
 }
-.dropdown-menu a:hover { background: #f0faf4; }
+.dropdown-menu a:hover { background: rgba(255,255,255,.08); color: #fff; }
 
 /* Mega menu */
-.mega-menu { min-width: 400px; }
+.mega-menu { min-width: 680px; left: 0; transform: translateX(0) translateY(8px); }
+.nav-item.has-dropdown:hover .mega-menu { transform: translateX(0) translateY(0); }
 .mega-cols { display: flex; gap: 40px; }
 .mega-col h4 {
   font-size: .75rem;
   letter-spacing: .08em;
-  color: #999;
+  color: #15C15D;
   margin-bottom: 12px;
 }
+
+/* Mega menu branding column */
+.mega-col-brand {
+  border-left: 1px solid rgba(255,255,255,.12);
+  padding-left: 40px;
+  max-width: 220px;
+}
+.mega-col-brand img:first-child { margin-bottom: 12px; }
+.mega-col-brand p {
+  font-size: .78rem;
+  color: rgba(255,255,255,.6);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+.mega-col-brand h4 {
+  color: #15C15D;
+  margin-bottom: 16px;
+}
+.mega-app-buttons { display: flex; gap: 8px; }
+.mega-app-buttons a { padding: 0; background: none; }
+.mega-app-buttons a:hover { background: none; opacity: .8; }
+.mega-app-buttons img { border-radius: 6px; }
 
 .header-actions {
   display: flex;
@@ -953,7 +978,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .faq-grid { grid-template-columns: 1fr; }
   .features-image { order: -1; }
   .carousel-slide { flex: 0 0 calc(50% - 12px); }
-  .mega-menu { min-width: 320px; }
+  .mega-menu { min-width: 560px; }
+  .mega-col-brand { max-width: 180px; padding-left: 24px; }
+  .mega-col-brand p { font-size: .72rem; }
 }
 
 /* Tablet portrait / large phones */
