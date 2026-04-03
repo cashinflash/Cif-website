@@ -141,7 +141,7 @@
   var calcSlider = document.getElementById('calc-slider');
   if (calcSlider) {
     var AMOUNTS = [100, 125, 150, 175, 200, 225, 255];
-    var FEE_RATE = 0.176; // 17.6% of loan amount
+    var FEE_RATE = 45 / 255; // 17.647% — $255 loan = $45 fee = $300 total
     var calcAmount = document.getElementById('calc-amount');
     var calcLoan = document.getElementById('calc-loan');
     var calcFee = document.getElementById('calc-fee');
@@ -151,7 +151,7 @@
     function updateCalc() {
       var idx = Number(calcSlider.value);
       var amount = AMOUNTS[idx];
-      var fee = amount * FEE_RATE;
+      var fee = Math.round(amount * FEE_RATE * 100) / 100;
       var total = amount + fee;
       var fill = (idx / (AMOUNTS.length - 1)) * 100;
 
