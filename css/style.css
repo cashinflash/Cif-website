@@ -1049,6 +1049,93 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   align-items: center;
 }
 
+/* Features composite (photo + phone mockup) */
+.features-composite {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 4 / 3.5;
+}
+.composite-photo {
+  width: 65%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+.composite-phone {
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52%;
+  background: #1a1a2e;
+  border-radius: 28px;
+  padding: 8px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.2);
+}
+.composite-phone-notch {
+  width: 80px;
+  height: 6px;
+  background: #333;
+  border-radius: 3px;
+  margin: 4px auto 8px;
+}
+.composite-phone-screen {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px 16px;
+  text-align: center;
+}
+.composite-logo {
+  height: 22px;
+  width: auto;
+  margin-bottom: 12px;
+}
+.composite-heading {
+  font-size: .85rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 2px;
+}
+.composite-amount {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+.composite-features-list {
+  text-align: left;
+  margin-bottom: 16px;
+}
+.composite-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .78rem;
+  color: #333;
+  padding: 4px 0;
+}
+.composite-btn {
+  display: block;
+  background: #15C15D;
+  color: #fff;
+  font-weight: 700;
+  font-size: .85rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 2px solid #1a1a2e;
+  transition: background .2s;
+  margin-bottom: 8px;
+}
+.composite-btn:hover { background: #12a34f; }
+.composite-note {
+  font-size: .65rem;
+  color: #999;
+  margin: 0;
+}
+
 /* Use Cases grid */
 .use-cases {
   padding: 80px 0;
@@ -1144,6 +1231,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .page-hero { padding: 48px 0 40px; }
   .page-hero .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
   .loan-calc { max-width: 400px; margin: 0 auto; }
+  .features-composite { max-width: 400px; margin: 0 auto; }
   .use-cases-grid { grid-template-columns: repeat(2, 1fr); }
   .requirements-grid { grid-template-columns: 1fr 1fr; }
   .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
@@ -1218,6 +1306,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .page-hero { padding: 40px 0 48px; }
   .loan-calc { padding: 24px; }
   .calc-amount { font-size: 2rem; }
+  .composite-phone { width: 55%; right: -5%; }
+  .composite-amount { font-size: 1.25rem; }
+  .composite-phone-screen { padding: 16px 12px; }
   .loan-calc h3 { font-size: 1.1rem; }
   .requirements { padding: 48px 0; }
   .requirements-grid { grid-template-columns: 1fr; }
