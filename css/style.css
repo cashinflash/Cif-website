@@ -1072,10 +1072,10 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   transform: translateY(-2px);
 }
 .use-case-icon {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   background: #f5f5f5;
-  border-radius: 50%;
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
