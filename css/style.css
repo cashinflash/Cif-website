@@ -545,29 +545,11 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   background: #fff;
 }
 .features::before,
-.features::after {
-  content: '';
-  position: absolute;
-  background: rgba(21,193,93,.06);
-  z-index: 0;
-  animation: floatBlob 9s ease-in-out infinite;
-}
-.features::before {
-  width: 350px; height: 350px;
-  top: -100px; left: -80px;
-  border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
-  animation-delay: -1s;
-}
-.features::after {
-  width: 260px; height: 240px;
-  bottom: -60px; right: -50px;
-  border-radius: 40% 60% 30% 70% / 50% 40% 60% 50%;
-  animation-delay: -4s;
-}
+.features::after { display: none; }
 .features-blob {
   position: absolute;
   width: 200px; height: 200px;
-  top: 50%; right: -60px;
+  top: 30%; right: -40px;
   background: rgba(21,193,93,.06);
   border-radius: 50% 40% 60% 30% / 40% 50% 30% 60%;
   z-index: 0;
@@ -685,25 +667,15 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .how-it-works::before {
   content: '';
   position: absolute;
-  width: 220px; height: 220px;
-  top: -60px; right: -40px;
+  width: 180px; height: 180px;
+  bottom: 10%; right: -40px;
   background: rgba(21,193,93,.05);
-  border-radius: 50%;
+  border-radius: 50% 40% 60% 30% / 40% 50% 30% 60%;
   z-index: 0;
   animation: floatBlob 10s ease-in-out infinite;
   animation-delay: -2s;
 }
-.how-it-works::after {
-  content: '';
-  position: absolute;
-  width: 160px; height: 140px;
-  bottom: -40px; left: -30px;
-  background: rgba(21,193,93,.04);
-  border-radius: 40% 60% 50% 50% / 50% 40% 60% 50%;
-  z-index: 0;
-  animation: floatBlob 12s ease-in-out infinite;
-  animation-delay: -6s;
-}
+.how-it-works::after { display: none; }
 .how-grid { position: relative; z-index: 1; }
 .how-grid {
   display: grid;
@@ -869,8 +841,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .faq::before {
   content: '';
   position: absolute;
-  width: 200px; height: 180px;
-  bottom: -50px; right: -30px;
+  width: 180px; height: 180px;
+  top: 20%; right: -40px;
   background: rgba(21,193,93,.04);
   border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%;
   z-index: 0;
@@ -1139,22 +1111,19 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   animation: floatBlob 10s ease-in-out infinite;
 }
 .page-hero-blob-1 {
-  width: 300px; height: 300px;
-  bottom: 0; left: -80px;
+  width: 250px; height: 250px;
+  bottom: 0; left: -60px;
   border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
   animation-delay: -2s;
 }
 .page-hero-blob-2 {
-  width: 180px; height: 180px;
-  top: 20%; right: -40px;
+  width: 160px; height: 160px;
+  top: 15%; right: -30px;
   border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
   animation-delay: -5s;
 }
 .page-hero-blob-3 {
-  width: 140px; height: 140px;
-  top: 40%; left: 35%;
-  border-radius: 50% 30% 60% 40% / 40% 60% 30% 60%;
-  animation-delay: -8s;
+  display: none;
 }
 .page-hero .hero-grid {
   position: relative;
@@ -1253,6 +1222,19 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .use-cases {
   padding: 80px 0;
   background: linear-gradient(180deg, #f0faf4 0%, #f7fdf9 50%, #f0faf4 100%);
+  position: relative;
+  overflow: hidden;
+}
+.use-cases-blob {
+  position: absolute;
+  width: 220px; height: 220px;
+  top: 20%; left: -60px;
+  background: rgba(21,193,93,.06);
+  border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlob 10s ease-in-out infinite;
+  animation-delay: -4s;
 }
 .use-cases-grid {
   display: grid;
@@ -1294,6 +1276,17 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   background: linear-gradient(180deg, #f0faf4 0%, #e8f5ee 50%, #f0faf4 100%);
   position: relative;
   overflow: hidden;
+}
+.requirements-blob {
+  position: absolute;
+  width: 200px; height: 200px;
+  top: 30%; left: -50px;
+  background: rgba(21,193,93,.06);
+  border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlob 11s ease-in-out infinite;
+  animation-delay: -5s;
 }
 .requirements-grid {
   display: grid;
@@ -1362,8 +1355,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .page-hero-blob-2, .page-hero-blob-3 { display: none; }
   .page-hero-blob-1 { width: 150px; height: 150px; bottom: -60px; left: -40px; }
   .hero::before, .hero::after { width: 150px; height: 150px; }
-  .features::before, .features::after { width: 120px; height: 120px; }
   .features-blob { display: block; width: 120px; height: 120px; top: -20px; left: -30px; right: auto; opacity: 0.7; }
+  .use-cases-blob, .requirements-blob { display: none; }
 
   .social-proof { padding: 60px 0; }
   .proof-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
@@ -1456,7 +1449,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   /* Resize new blobs for mobile */
   .social-proof::before { width: 90px; height: 90px; top: -25px; right: -15px; }
   .social-proof::after { width: 70px; height: 60px; bottom: -20px; left: -10px; }
-  .faq::before { width: 90px; height: 80px; bottom: -25px; right: -15px; }
+  .faq::before { width: 90px; height: 80px; top: 10%; right: -15px; }
   .pre-footer::before { width: 80px; height: 70px; top: -20px; left: -10px; }
 
   /* FAQ: ensure touch targets */
