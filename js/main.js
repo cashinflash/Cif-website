@@ -33,6 +33,7 @@
     mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
   });
   overlay.addEventListener('click', closeMenu);
+  document.getElementById('mobile-menu-close').addEventListener('click', closeMenu);
 
   /* Mobile sub-menu toggles */
   document.querySelectorAll('.mobile-nav-item.has-sub > a').forEach(function (link) {
