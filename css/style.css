@@ -681,6 +681,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   position: relative;
   padding: 80px 0;
   overflow: hidden;
+  background: linear-gradient(180deg, #f0faf4 0%, #f7fdf9 40%, #f7fdf9 60%, #f0faf4 100%);
 }
 .how-it-works::before {
   content: '';
@@ -818,7 +819,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .education-cta { text-align: center; margin-top: 40px; }
 
 /* ---------- 9. FAQ ---------- */
-.faq { padding: 80px 0; position: relative; overflow: hidden; }
+.faq { padding: 80px 0; position: relative; overflow: hidden; background: linear-gradient(180deg, #f0faf4 0%, #e8f5ee 40%, #e0ede6 100%); }
 .faq-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1252,7 +1253,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 /* Use Cases grid */
 .use-cases {
   padding: 80px 0;
-  background: #fff;
+  background: linear-gradient(180deg, #f0faf4 0%, #f7fdf9 50%, #f0faf4 100%);
 }
 .use-cases-grid {
   display: grid;
@@ -1291,7 +1292,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 /* Requirements section */
 .requirements {
   padding: 80px 0;
-  background: linear-gradient(180deg, #fff 0%, #f0faf4 100%);
+  background: linear-gradient(180deg, #f0faf4 0%, #e8f5ee 50%, #f0faf4 100%);
   position: relative;
   overflow: hidden;
 }
