@@ -1344,9 +1344,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .page-hero { padding: 48px 0 40px; }
   .page-hero .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
   .loan-calc { max-width: 400px; margin: 0 auto; }
-  .features-composite { display: flex; align-items: center; gap: 12px; max-width: 100%; margin: 0 auto; }
-  .composite-photo { width: 45%; height: auto; min-height: auto; border-radius: 16px; flex-shrink: 0; }
-  .composite-phone { position: static; transform: none; width: 55%; right: auto; top: auto; border-radius: 28px; box-shadow: 0 12px 36px rgba(0,0,0,.15); }
+  .features-composite { position: relative; width: 100%; margin: 0 auto; }
+  .composite-photo { width: 62%; height: auto; min-height: 280px; border-radius: 16px; }
+  .composite-phone { position: absolute; right: -2%; top: 50%; transform: translateY(-50%); width: 55%; border-radius: 28px; padding: 5px 5px 7px; box-shadow: 0 12px 36px rgba(0,0,0,.18); }
   .composite-phone-screen { border-radius: 22px; padding: 18px 14px; }
   .composite-phone-island { height: 18px; }
   .composite-logo { height: 18px; margin-bottom: 10px; }
@@ -1359,15 +1359,16 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .hero-image { max-width: 340px; margin: 0 auto; }
   .hero-float { display: none; }
   .hero-blob-1, .hero-blob-2 { display: none; }
-  .page-hero-blob-1, .page-hero-blob-2, .page-hero-blob-3 { display: none; }
+  .page-hero-blob-2, .page-hero-blob-3 { display: none; }
+  .page-hero-blob-1 { width: 150px; height: 150px; bottom: -60px; left: -40px; }
   .hero::before, .hero::after { width: 150px; height: 150px; }
   .features::before, .features::after { width: 120px; height: 120px; }
-  .features-blob { display: none; }
+  .features-blob { display: block; width: 120px; height: 120px; top: -20px; left: -30px; right: auto; opacity: 0.7; }
 
   .social-proof { padding: 60px 0; }
   .proof-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
 
-  .features { padding: 60px 0; }
+  .features { padding: 60px 0; overflow: hidden; }
   .features-grid { gap: 32px; }
   .features-phone { max-width: 300px; }
 
@@ -1426,9 +1427,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .page-hero { padding: 40px 0 48px; }
   .loan-calc { padding: 24px; }
   .calc-amount { font-size: 2rem; }
-  .features-composite { gap: 8px; }
-  .composite-photo { width: 40%; border-radius: 12px; }
-  .composite-phone { border-radius: 24px; padding: 5px 5px 6px; }
+  .composite-photo { width: 60%; min-height: 240px; border-radius: 12px; }
+  .composite-phone { right: 0%; width: 56%; border-radius: 24px; padding: 4px 4px 6px; }
   .composite-phone-screen { padding: 14px 10px; border-radius: 18px; }
   .composite-phone-island { height: 14px; }
   .composite-logo { height: 14px; margin-bottom: 8px; }
@@ -1437,6 +1437,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .composite-subtext { font-size: .65rem; }
   .composite-amount { font-size: 1.1rem; margin-bottom: 10px; }
   .composite-btn { font-size: .72rem; padding: 8px 12px; }
+  .features-blob { width: 90px; height: 90px; top: -15px; left: -20px; opacity: 0.5; }
   .loan-calc h3 { font-size: 1.1rem; }
   .requirements { padding: 48px 0; }
   .requirements-grid { grid-template-columns: 1fr; }
