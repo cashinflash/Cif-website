@@ -1230,9 +1230,11 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .page-hero { padding: 48px 0 40px; }
   .page-hero .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
   .loan-calc { max-width: 400px; margin: 0 auto; }
-  .features-composite { max-width: 360px; margin: 0 auto; padding-bottom: 40px; overflow: visible; }
-  .composite-photo { width: 60%; border-radius: 16px; }
-  .composite-phone { width: 52%; right: 0; }
+  .features-composite { display: flex; align-items: center; gap: 12px; max-width: 100%; margin: 0 auto; }
+  .composite-photo { width: 45%; height: auto; border-radius: 16px; flex-shrink: 0; }
+  .composite-phone { position: static; transform: none; width: 55%; right: auto; top: auto; border-radius: 28px; box-shadow: 0 12px 36px rgba(0,0,0,.15); }
+  .composite-phone-screen { border-radius: 22px; padding: 18px 14px; }
+  .composite-phone-island { height: 18px; }
   .use-cases-grid { grid-template-columns: repeat(2, 1fr); }
   .requirements-grid { grid-template-columns: 1fr 1fr; }
   .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
@@ -1307,17 +1309,18 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .page-hero { padding: 40px 0 48px; }
   .loan-calc { padding: 24px; }
   .calc-amount { font-size: 2rem; }
-  .features-composite { max-width: 320px; padding-bottom: 30px; }
-  .composite-photo { width: 55%; }
-  .composite-phone { width: 55%; right: -2%; border-radius: 28px; }
-  .composite-phone-screen { padding: 16px 12px; border-radius: 22px; }
-  .composite-phone-island { height: 16px; }
-  .composite-amount { font-size: 1.2rem; }
-  .composite-heading { font-size: .75rem; }
-  .composite-check { font-size: .7rem; gap: 6px; }
-  .composite-btn { font-size: .78rem; padding: 10px 16px; }
-  .composite-logo { height: 18px; }
-  .composite-note { font-size: .6rem; }
+  .features-composite { gap: 8px; }
+  .composite-photo { width: 40%; border-radius: 12px; }
+  .composite-phone { border-radius: 24px; padding: 5px 5px 6px; }
+  .composite-phone-screen { padding: 14px 10px; border-radius: 18px; }
+  .composite-phone-island { height: 14px; }
+  .composite-amount { font-size: 1.1rem; }
+  .composite-heading { font-size: .72rem; }
+  .composite-check { font-size: .65rem; gap: 5px; }
+  .composite-check svg { width: 14px; height: 14px; }
+  .composite-btn { font-size: .72rem; padding: 8px 12px; border-radius: 8px; }
+  .composite-logo { height: 16px; }
+  .composite-note { font-size: .55rem; }
   .loan-calc h3 { font-size: 1.1rem; }
   .requirements { padding: 48px 0; }
   .requirements-grid { grid-template-columns: 1fr; }
