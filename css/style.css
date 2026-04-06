@@ -673,7 +673,6 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .how-it-works {
   position: relative;
   padding: 80px 0;
-  overflow: hidden;
   background: #fff;
 }
 .how-it-works::before {
@@ -813,7 +812,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .education-cta { text-align: center; margin-top: 40px; }
 
 /* ---------- 9. FAQ ---------- */
-.faq { padding: 80px 0; position: relative; overflow: hidden; background: #fff; }
+.faq { padding: 80px 0; position: relative; background: #fff; }
 .faq-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -914,7 +913,6 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   color: #fff;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 /* Pre-footer blob */
 .pre-footer::before {
@@ -1135,7 +1133,6 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   padding: 60px 0 80px;
   background: linear-gradient(180deg, #f0faf4 0%, #e8f5ee 40%, #f0faf4 100%);
   position: relative;
-  overflow: hidden;
 }
 .page-hero-blob-1,
 .page-hero-blob-2,
@@ -1264,7 +1261,6 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   padding: 80px 0;
   background: linear-gradient(180deg, #f0faf4 0%, #f7fdf9 50%, #f0faf4 100%);
   position: relative;
-  overflow: hidden;
 }
 .use-cases-blob {
   position: absolute;
@@ -1340,7 +1336,6 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   padding: 80px 0;
   background: linear-gradient(180deg, #f0faf4 0%, #e8f5ee 50%, #f0faf4 100%);
   position: relative;
-  overflow: hidden;
 }
 .requirements-blob {
   position: absolute;
@@ -1426,7 +1421,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .social-proof { padding: 60px 0; }
   .proof-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
 
-  .features { padding: 60px 0; overflow: hidden; }
+  .features { padding: 60px 0; }
   .features-grid { gap: 32px; }
   .features-phone { max-width: 300px; }
 
