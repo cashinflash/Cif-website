@@ -909,8 +909,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 /* ---------- 11. PRE-FOOTER CTA ---------- */
 .pre-footer {
   padding: 100px 0;
-  background: linear-gradient(160deg, #1a1a2e 0%, #0f0f1e 100%);
-  color: #fff;
+  background: linear-gradient(160deg, #FFC52B 0%, #FFB300 100%);
+  color: #1a1a2e;
   text-align: center;
   position: relative;
 }
@@ -920,7 +920,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   position: absolute;
   width: 120px; height: 120px;
   top: -30px; left: 10%;
-  background: rgba(21,193,93,.05);
+  background: rgba(255,160,0,.15);
   border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
   z-index: 0;
   pointer-events: none;
