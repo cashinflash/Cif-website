@@ -909,7 +909,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 /* ---------- 11. PRE-FOOTER CTA ---------- */
 .pre-footer {
   padding: 100px 0;
-  background: linear-gradient(160deg, #FFC52B 0%, #FFB300 100%);
+  background: linear-gradient(to right, #F5A623 0%, #FFC52B 50%, #FFD54F 100%);
   color: #1a1a2e;
   text-align: center;
   position: relative;
