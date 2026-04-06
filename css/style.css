@@ -982,17 +982,12 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .footer-bottom-links { display: flex; gap: 24px; font-size: .85rem; }
 .footer-bottom-links a:hover { color: #fff; }
 
-.footer-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 24px;
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 50px;
-  font-size: .85rem;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: .02em;
+.footer-badge-wrap {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.footer-badge-seal {
+  display: inline-block;
 }
 .footer-legal { text-align: center; font-size: .8rem; margin-bottom: 24px; }
 .footer-legal a { text-decoration: underline; text-underline-offset: 2px; }
