@@ -549,8 +549,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .features::after {
   content: '';
   position: absolute;
-  width: 160px; height: 160px;
-  bottom: -30px; left: -40px;
+  width: 300px; height: 300px;
+  bottom: -100px; left: -60px;
   background: rgba(21,193,93,.05);
   border-radius: 40% 60% 50% 50% / 60% 40% 50% 50%;
   z-index: 0;
@@ -560,13 +560,13 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 }
 .features-blob {
   position: absolute;
-  width: 200px; height: 200px;
-  top: 30%; right: -40px;
+  width: 90px; height: 90px;
+  top: 15%; right: 8%;
   background: rgba(21,193,93,.06);
   border-radius: 50% 40% 60% 30% / 40% 50% 30% 60%;
   z-index: 0;
   pointer-events: none;
-  animation: floatBlob 11s ease-in-out infinite;
+  animation: floatBlob 9s ease-in-out infinite;
   animation-delay: -3s;
 }
 .features-grid { position: relative; z-index: 1; }
@@ -678,8 +678,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .how-it-works::before {
   content: '';
   position: absolute;
-  width: 180px; height: 180px;
-  bottom: 10%; right: -40px;
+  width: 320px; height: 320px;
+  bottom: -80px; right: -80px;
   background: rgba(21,193,93,.05);
   border-radius: 50% 40% 60% 30% / 40% 50% 30% 60%;
   z-index: 0;
@@ -689,13 +689,13 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .how-it-works::after {
   content: '';
   position: absolute;
-  width: 150px; height: 150px;
-  top: -20px; left: -40px;
+  width: 80px; height: 80px;
+  top: 15%; left: 8%;
   background: rgba(21,193,93,.05);
   border-radius: 60% 40% 30% 70% / 50% 60% 50% 40%;
   z-index: 0;
   pointer-events: none;
-  animation: floatBlob 10s ease-in-out infinite;
+  animation: floatBlob 8s ease-in-out infinite;
   animation-delay: -6s;
 }
 .how-grid { position: relative; z-index: 1; }
@@ -860,8 +860,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .faq::after {
   content: '';
   position: absolute;
-  width: 150px; height: 150px;
-  bottom: -20px; left: -35px;
+  width: 180px; height: 180px;
+  bottom: -50px; left: -30px;
   background: rgba(21,193,93,.04);
   border-radius: 50% 40% 60% 30% / 40% 60% 30% 50%;
   z-index: 0;
@@ -875,8 +875,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .faq::before {
   content: '';
   position: absolute;
-  width: 180px; height: 180px;
-  top: 20%; right: -40px;
+  width: 280px; height: 280px;
+  top: -60px; right: -70px;
   background: rgba(21,193,93,.04);
   border-radius: 30% 70% 60% 40% / 50% 40% 60% 50%;
   z-index: 0;
@@ -918,8 +918,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .pre-footer::before {
   content: '';
   position: absolute;
-  width: 180px; height: 160px;
-  top: -40px; left: -20px;
+  width: 120px; height: 120px;
+  top: -30px; left: 10%;
   background: rgba(21,193,93,.05);
   border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
   z-index: 0;
@@ -1144,20 +1144,20 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   animation: floatBlob 10s ease-in-out infinite;
 }
 .page-hero-blob-1 {
-  width: 250px; height: 250px;
-  bottom: 0; left: -60px;
+  width: 320px; height: 320px;
+  bottom: -80px; left: -80px;
   border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
   animation-delay: -2s;
 }
 .page-hero-blob-2 {
-  width: 160px; height: 160px;
-  top: 15%; right: -30px;
+  width: 100px; height: 100px;
+  top: 20%; right: 5%;
   border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
   animation-delay: -5s;
 }
 .page-hero-blob-3 {
-  width: 140px; height: 140px;
-  top: 40%; left: 10%;
+  width: 180px; height: 180px;
+  top: 50%; left: 15%;
   border-radius: 50% 30% 60% 40% / 40% 60% 30% 50%;
   animation-delay: -7s;
 }
@@ -1264,8 +1264,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 }
 .use-cases-blob {
   position: absolute;
-  width: 220px; height: 220px;
-  top: 20%; left: -60px;
+  width: 200px; height: 200px;
+  top: 10%; left: -50px;
   background: rgba(21,193,93,.06);
   border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%;
   z-index: 0;
@@ -1276,13 +1276,13 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .use-cases::before {
   content: '';
   position: absolute;
-  width: 170px; height: 170px;
-  bottom: -30px; right: -40px;
+  width: 100px; height: 100px;
+  bottom: 20%; right: 5%;
   background: rgba(21,193,93,.05);
   border-radius: 50% 30% 60% 40% / 40% 50% 40% 60%;
   z-index: 0;
   pointer-events: none;
-  animation: floatBlob 11s ease-in-out infinite;
+  animation: floatBlob 9s ease-in-out infinite;
   animation-delay: -2s;
 }
 .use-cases-grid {
@@ -1323,8 +1323,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .requirements::before {
   content: '';
   position: absolute;
-  width: 160px; height: 160px;
-  top: -20px; right: -40px;
+  width: 100px; height: 100px;
+  top: 10%; right: 10%;
   background: rgba(21,193,93,.05);
   border-radius: 30% 60% 50% 40% / 50% 30% 60% 50%;
   z-index: 0;
@@ -1339,8 +1339,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 }
 .requirements-blob {
   position: absolute;
-  width: 200px; height: 200px;
-  top: 30%; left: -50px;
+  width: 180px; height: 180px;
+  top: 40%; left: -50px;
   background: rgba(21,193,93,.06);
   border-radius: 40% 60% 30% 70% / 60% 40% 60% 40%;
   z-index: 0;
@@ -1412,11 +1412,13 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .hero-image { max-width: 340px; margin: 0 auto; }
   .hero-float { display: none; }
   .hero-blob-1, .hero-blob-2 { display: none; }
-  .page-hero-blob-2, .page-hero-blob-3 { display: none; }
-  .page-hero-blob-1 { width: 150px; height: 150px; bottom: -60px; left: -40px; }
+  .page-hero-blob-2 { width: 70px; height: 70px; }
+  .page-hero-blob-3 { width: 120px; height: 120px; }
+  .page-hero-blob-1 { width: 200px; height: 200px; bottom: -50px; left: -50px; }
   .hero::before, .hero::after { width: 150px; height: 150px; }
-  .features-blob { display: block; width: 120px; height: 120px; top: -20px; left: -30px; right: auto; opacity: 0.7; }
-  .use-cases-blob, .requirements-blob { display: none; }
+  .features-blob { width: 70px; height: 70px; opacity: 0.7; }
+  .use-cases-blob { width: 140px; height: 140px; }
+  .requirements-blob { width: 120px; height: 120px; }
 
   .social-proof { padding: 60px 0; }
   .proof-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
@@ -1459,16 +1461,17 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   /* Footer links: touch-friendly */
   .footer-col a { min-height: 44px; display: inline-flex; align-items: center; }
 
-  /* Resize new blobs for tablet */
+  /* Resize blobs for tablet */
   .social-proof::before { width: 140px; height: 140px; }
   .social-proof::after { width: 110px; height: 100px; }
-  .features::after { width: 100px; height: 100px; bottom: -20px; left: -25px; opacity: 0.6; }
-  .use-cases::before { width: 110px; height: 110px; bottom: -20px; right: -25px; opacity: 0.6; }
-  .how-it-works::after { width: 100px; height: 100px; top: -15px; left: -25px; opacity: 0.6; }
-  .requirements::before { width: 100px; height: 100px; top: -15px; right: -25px; opacity: 0.6; }
-  .faq::before { width: 140px; height: 130px; }
-  .faq::after { width: 100px; height: 100px; bottom: -15px; left: -20px; opacity: 0.6; }
-  .pre-footer::before { width: 130px; height: 110px; }
+  .features::after { width: 200px; height: 200px; bottom: -60px; left: -40px; opacity: 0.7; }
+  .use-cases::before { width: 70px; height: 70px; opacity: 0.6; }
+  .how-it-works::before { width: 200px; height: 200px; bottom: -50px; right: -50px; }
+  .how-it-works::after { width: 60px; height: 60px; opacity: 0.6; }
+  .requirements::before { width: 70px; height: 70px; opacity: 0.6; }
+  .faq::before { width: 180px; height: 180px; top: -40px; right: -40px; }
+  .faq::after { width: 120px; height: 120px; bottom: -30px; left: -20px; }
+  .pre-footer::before { width: 80px; height: 80px; }
 }
 
 /* Mobile */
@@ -1496,7 +1499,10 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .composite-subtext { font-size: .65rem; }
   .composite-amount { font-size: 1.1rem; margin-bottom: 10px; }
   .composite-btn { font-size: .72rem; padding: 8px 12px; }
-  .features-blob { width: 90px; height: 90px; top: -15px; left: -20px; opacity: 0.5; }
+  .features-blob { width: 50px; height: 50px; opacity: 0.5; }
+  .page-hero-blob-1 { width: 150px; height: 150px; }
+  .page-hero-blob-2 { display: none; }
+  .page-hero-blob-3 { width: 80px; height: 80px; }
   .loan-calc h3 { font-size: 1.1rem; }
   .requirements { padding: 48px 0; }
   .requirements-grid { grid-template-columns: 1fr; }
@@ -1506,22 +1512,23 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   /* Underline: tighter on small screens */
   .underline-accent::after { bottom: -3px; height: 4px; }
 
-  /* Resize decorative blobs on small screens instead of hiding */
-  .how-it-works::before { width: 100px; height: 100px; top: -30px; right: -20px; }
-  .how-it-works::after { width: 80px; height: 70px; bottom: -20px; left: -15px; }
+  /* Resize decorative blobs on small screens */
+  .how-it-works::before { width: 150px; height: 150px; bottom: -40px; right: -40px; }
+  .how-it-works::after { width: 50px; height: 50px; }
   .education::before { width: 100px; height: 100px; top: -40px; left: -25px; }
   .app-promo::after { width: 90px; height: 90px; bottom: -30px; right: 0; }
 
-  /* Resize new blobs for mobile */
+  /* Resize blobs for mobile */
   .social-proof::before { width: 90px; height: 90px; top: -25px; right: -15px; }
   .social-proof::after { width: 70px; height: 60px; bottom: -20px; left: -10px; }
-  .features::after { width: 70px; height: 70px; bottom: -15px; left: -15px; opacity: 0.4; }
-  .use-cases::before { width: 75px; height: 75px; bottom: -15px; right: -15px; opacity: 0.4; }
-  .how-it-works::after { width: 70px; height: 70px; top: -15px; left: -15px; opacity: 0.4; }
-  .requirements::before { width: 70px; height: 70px; top: -10px; right: -15px; opacity: 0.4; }
-  .faq::before { width: 90px; height: 80px; top: 10%; right: -15px; }
-  .faq::after { width: 70px; height: 65px; bottom: -10px; left: -10px; opacity: 0.4; }
-  .pre-footer::before { width: 80px; height: 70px; top: -20px; left: -10px; }
+  .features::after { width: 140px; height: 140px; bottom: -40px; left: -30px; opacity: 0.5; }
+  .use-cases::before { width: 50px; height: 50px; opacity: 0.4; }
+  .use-cases-blob { width: 100px; height: 100px; }
+  .requirements-blob { width: 90px; height: 90px; }
+  .requirements::before { width: 50px; height: 50px; opacity: 0.4; }
+  .faq::before { width: 130px; height: 130px; top: -30px; right: -30px; }
+  .faq::after { width: 80px; height: 80px; bottom: -20px; left: -15px; }
+  .pre-footer::before { width: 60px; height: 60px; }
 
   /* FAQ: ensure touch targets */
   .faq-item summary { min-height: 48px; }
