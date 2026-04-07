@@ -560,6 +560,58 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   background: #1a1a2e;
   color: #fff;
 }
+
+/* ---------- WU PAGE BLOB OVERRIDES ---------- */
+
+/* WU Hero blobs */
+.wu-hero::before {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  bottom: -80px; left: -70px;
+  background: rgba(255,221,0,.1);
+  border-radius: 62% 38% 46% 54% / 52% 60% 40% 48%;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlob 10s ease-in-out infinite;
+  animation-delay: -3s;
+}
+.wu-hero::after {
+  content: '';
+  position: absolute;
+  width: 100px; height: 100px;
+  top: 15%; right: 8%;
+  background: rgba(245,166,35,.08);
+  border-radius: 54% 46% 58% 42% / 48% 56% 44% 52%;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatBlob 8s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+/* Override shared blob colors to yellow/amber on WU page */
+.wu-page .use-cases-blob {
+  background: rgba(255,221,0,.1);
+}
+.wu-page .use-cases::before {
+  background: rgba(245,166,35,.08);
+}
+.wu-page .how-it-works::before {
+  background: rgba(255,221,0,.1);
+}
+.wu-page .how-it-works::after {
+  background: rgba(245,166,35,.08);
+}
+.wu-page .faq::before {
+  background: rgba(255,221,0,.1);
+}
+.wu-page .faq::after {
+  background: rgba(245,166,35,.08);
+}
+.wu-page .pre-footer::before {
+  background: rgba(255,221,0,.12);
+}
+
 .hero-phone { position: relative; z-index: 2; }
 .hero-float {
   position: absolute;
