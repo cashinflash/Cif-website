@@ -455,7 +455,34 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .wu-brand-hero { display: flex; align-items: center; justify-content: center; }
 .wu-brand-hero svg { filter: drop-shadow(0 8px 24px rgba(0,0,0,.12)); }
 
-/* ---------- WESTERN UNION HERO ---------- */
+/* ---------- WESTERN UNION PAGE ---------- */
+
+/* WU Services grid - 3 columns on desktop */
+.wu-services-grid { grid-template-columns: repeat(3, 1fr); }
+.wu-services-grid .use-case-card p {
+  color: #555;
+  font-size: .88rem;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* WU Step numbers */
+.wu-step-number {
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #FFDD00 0%, #F5A623 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #000;
+  flex-shrink: 0;
+}
+
+/* WU Hero */
 .wu-hero {
   position: relative;
   min-height: 520px;
@@ -1555,11 +1582,16 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .faq::after { width: 120px; height: 120px; bottom: -30px; left: -20px; }
   .pre-footer::before { width: 80px; height: 80px; }
 
-  /* WU Hero responsive */
-  .wu-hero { min-height: 400px; }
-  .wu-hero-inner { justify-content: center; padding-top: 40px; padding-bottom: 40px; }
-  .wu-hero-card { max-width: 360px; padding: 36px 28px; }
+  /* WU responsive - tablet */
+  .wu-hero { min-height: auto; }
+  .wu-hero-inner { justify-content: center; padding-top: 48px; padding-bottom: 48px; }
+  .wu-hero-card { max-width: 380px; padding: 36px 28px; }
   .wu-hero-card h1 { font-size: 1.4rem; }
+  .wu-services-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+  .wu-services-grid .use-case-card { text-align: left; display: flex; flex-direction: row; align-items: flex-start; gap: 20px; padding: 24px; }
+  .wu-services-grid .use-case-card .use-case-icon { flex-shrink: 0; }
+  .wu-services-grid .use-case-card h4 { margin-bottom: 4px; }
+  .wu-step-number { width: 56px; height: 56px; min-width: 56px; font-size: 1.4rem; border-radius: 12px; }
 }
 
 /* Mobile */
@@ -1637,12 +1669,31 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .marquee-track img { height: 28px; }
 
   /* WU Hero mobile */
-  .wu-hero { min-height: 360px; }
-  .wu-hero-card { max-width: 100%; padding: 28px 24px; border-radius: 16px; }
-  .wu-hero-card h1 { font-size: 1.25rem; }
-  .wu-hero-card p { font-size: .88rem; }
-  .wu-hero-btn { padding: 12px 36px; font-size: .9rem; }
+  .wu-hero { min-height: auto; }
+  .wu-hero-bg { position: absolute; inset: 0; }
+  .wu-hero-photo { object-position: 30% center; }
+  .wu-hero-overlay { background: linear-gradient(to bottom, rgba(255,255,255,.85) 0%, rgba(255,255,255,.7) 100%); }
+  .wu-hero-inner { padding-top: 32px; padding-bottom: 32px; }
+  .wu-hero-card {
+    max-width: 100%;
+    padding: 28px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,.1);
+  }
+  .wu-hero-card h1 { font-size: 1.3rem; margin-bottom: 12px; }
+  .wu-hero-card p { font-size: .88rem; margin-bottom: 20px; }
+  .wu-hero-btn { padding: 12px 36px; font-size: .9rem; width: 100%; text-align: center; }
+  .wu-hero-card-logo { margin-bottom: 20px; }
   .wu-hero-card-logo img { max-width: 180px; }
+
+  /* WU Services mobile */
+  .wu-services-grid { grid-template-columns: 1fr; max-width: 100%; }
+  .wu-services-grid .use-case-card { text-align: left; display: flex; flex-direction: row; align-items: flex-start; gap: 16px; padding: 20px; }
+  .wu-services-grid .use-case-card .use-case-icon { flex-shrink: 0; }
+  .wu-services-grid .use-case-card h4 { margin-bottom: 4px; }
+
+  /* WU Steps mobile */
+  .wu-step-number { width: 48px; height: 48px; min-width: 48px; font-size: 1.2rem; border-radius: 12px; }
 }
 
 /* Very small screens */
