@@ -451,7 +451,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .hero-badges { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
 .hero-badges img { height: auto; }
 
-.hero-image { position: relative; display: flex; justify-content: center; }
+.hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
+.wu-brand-hero { display: flex; align-items: center; justify-content: center; }
+.wu-brand-hero svg { filter: drop-shadow(0 8px 24px rgba(0,0,0,.12)); }
 .hero-phone { position: relative; z-index: 2; }
 .hero-float {
   position: absolute;
