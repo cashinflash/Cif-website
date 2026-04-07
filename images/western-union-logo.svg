@@ -1,18 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 140">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 130">
   <!-- Western Union Logo -->
 
-  <!-- W Mark - Two overlapping chevron/V shapes -->
-  <g transform="translate(0, 0)">
-    <!-- Back-left V chevron (slightly behind) -->
-    <path d="M8 4 L38 4 L68 108 L98 4 L118 4 L76 136 L60 136 Z" fill="#FFDD00"/>
-    <!-- Front-right V chevron (overlapping) -->
-    <path d="M58 4 L88 4 L118 108 L148 4 L168 4 L126 136 L110 136 Z" fill="#FFDD00"/>
-    <!-- White cut between the two Vs to create separation -->
-    <path d="M68 108 L82 68 L76 136 L60 136 Z" fill="#fff"/>
-  </g>
+  <!-- W Mark composed of two overlapping V-chevrons -->
+  <!-- Right V chevron (drawn first, sits behind) -->
+  <polygon points="50,2 80,2 120,126 160,2 178,2 130,130 110,130" fill="#FFCC00"/>
+  <!-- Left V chevron (drawn second, sits in front with white edge) -->
+  <polygon points="0,2 18,2 70,130 90,130 130,2 100,2 70,90" fill="#FFCC00"/>
+  <!-- White diagonal separator creating depth between the two Vs -->
+  <polygon points="70,90 80,62 90,130 70,130" fill="#fff"/>
 
-  <!-- "Western" text -->
-  <text x="185" y="58" font-family="'Arial Black','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="58" font-weight="900" fill="#000" letter-spacing="-1.5">Western</text>
-  <!-- "Union" text -->
-  <text x="185" y="122" font-family="'Arial Black','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="58" font-weight="900" fill="#000" letter-spacing="-1.5">Union</text>
+  <!-- Text -->
+  <text x="175" y="52" font-family="'Arial Black','Segoe UI Black','Helvetica Neue',sans-serif" font-size="53" font-weight="900" fill="#1a1a1a" letter-spacing="-1">Western</text>
+  <text x="175" y="115" font-family="'Arial Black','Segoe UI Black','Helvetica Neue',sans-serif" font-size="53" font-weight="900" fill="#1a1a1a" letter-spacing="-1">Union</text>
 </svg>
