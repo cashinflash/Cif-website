@@ -1587,6 +1587,61 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .requirement-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
 .requirement-card p { color: #555; font-size: .88rem; }
 
+/* ---------- LOAN PRODUCTS (Landing Page) ---------- */
+.loan-products { padding: 80px 0; }
+.loan-products .section-heading { text-align: center; }
+.loan-products .section-subtitle { text-align: center; color: #555; max-width: 600px; margin: 0 auto 48px; }
+.loan-products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+.loan-product-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 2px 16px rgba(0,0,0,.06);
+  border: 1px solid #e5e5e5;
+  transition: transform .2s, box-shadow .2s, border-color .3s;
+}
+.loan-product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0,0,0,.1);
+  border-color: #15C15D;
+}
+.loan-product-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #e8f5ee 0%, #d4f5e0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.loan-product-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; color: #1a1a2e; }
+.loan-product-card > p { color: #555; margin-bottom: 20px; line-height: 1.7; }
+.loan-product-card ul { list-style: none; padding: 0; margin: 0 0 24px; }
+.loan-product-card ul li {
+  padding: 6px 0;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: .95rem;
+}
+.loan-product-card ul li svg { flex-shrink: 0; }
+.loan-product-card .btn-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #15C15D;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: gap .2s;
+}
+.loan-product-card .btn-learn-more:hover { gap: 10px; }
+
 /* ---------- RESPONSIVE ---------- */
 
 /* Tablet landscape */
@@ -1623,6 +1678,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .composite-phone-island { height: 18px; }
   .composite-logo { height: 18px; margin-bottom: 10px; }
   .use-cases-grid { grid-template-columns: repeat(2, 1fr); }
+  .loan-products-grid { grid-template-columns: 1fr; }
+  .loan-product-card { padding: 28px; }
   .requirements-grid { grid-template-columns: 1fr 1fr; }
   .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
   .hero-checks { align-items: center; }
