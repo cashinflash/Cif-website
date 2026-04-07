@@ -454,6 +454,93 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
 .wu-brand-hero { display: flex; align-items: center; justify-content: center; }
 .wu-brand-hero svg { filter: drop-shadow(0 8px 24px rgba(0,0,0,.12)); }
+
+/* ---------- WESTERN UNION HERO ---------- */
+.wu-hero {
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.wu-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.wu-hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+.wu-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,.1) 0%, rgba(0,0,0,.25) 50%, rgba(0,0,0,.05) 100%);
+}
+.wu-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.wu-hero-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 48px 44px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 12px 48px rgba(0,0,0,.15);
+  text-align: center;
+}
+.wu-hero-card-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.wu-hero-card-brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.wu-brand-name {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  letter-spacing: -.5px;
+}
+.wu-hero-card h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+.wu-hero-card p {
+  color: #555;
+  font-size: .95rem;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+.wu-hero-btn {
+  display: inline-block;
+  padding: 14px 48px;
+  border: 2px solid #1a1a2e;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1a1a2e;
+  transition: background .2s, color .2s;
+}
+.wu-hero-btn:hover {
+  background: #1a1a2e;
+  color: #fff;
+}
 .hero-phone { position: relative; z-index: 2; }
 .hero-float {
   position: absolute;
@@ -1475,6 +1562,12 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .faq::before { width: 180px; height: 180px; top: -40px; right: -40px; }
   .faq::after { width: 120px; height: 120px; bottom: -30px; left: -20px; }
   .pre-footer::before { width: 80px; height: 80px; }
+
+  /* WU Hero responsive */
+  .wu-hero { min-height: 400px; }
+  .wu-hero-inner { justify-content: center; padding-top: 40px; padding-bottom: 40px; }
+  .wu-hero-card { max-width: 360px; padding: 36px 28px; }
+  .wu-hero-card h1 { font-size: 1.4rem; }
 }
 
 /* Mobile */
@@ -1550,6 +1643,14 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
   .marquee-track { gap: 40px; }
   .marquee-track img { height: 28px; }
+
+  /* WU Hero mobile */
+  .wu-hero { min-height: 360px; }
+  .wu-hero-card { max-width: 100%; padding: 28px 24px; border-radius: 16px; }
+  .wu-hero-card h1 { font-size: 1.25rem; }
+  .wu-hero-card p { font-size: .88rem; }
+  .wu-hero-btn { padding: 12px 36px; font-size: .9rem; }
+  .wu-brand-name { font-size: 1.2rem; }
 }
 
 /* Very small screens */
