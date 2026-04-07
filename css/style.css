@@ -1760,6 +1760,97 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .city-nearest .location-card { max-width: 500px; margin: 24px auto 0; }
 .city-other-cities { padding: 60px 0; }
 
+/* ---------- MONEY TIPS ---------- */
+.tips-category { padding: 80px 0; }
+.tips-category:nth-child(odd) { background: #f0faf4; }
+.tips-category .section-heading { text-align: center; }
+.tips-category > .container > p { text-align: center; color: #555; max-width: 600px; margin: 0 auto 48px; }
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.tip-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  transition: transform .2s, box-shadow .2s, border-color .3s;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+}
+.tip-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+  border-color: #15C15D;
+}
+.tip-card-icon {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+}
+.tip-card-icon.bg-green { background: linear-gradient(135deg, #e8f5ee 0%, #d4f5e0 100%); }
+.tip-card-icon.bg-blue { background: linear-gradient(135deg, #e8f0fa 0%, #d4e5f5 100%); }
+.tip-card-icon.bg-orange { background: linear-gradient(135deg, #fef3e2 0%, #fde5c0 100%); }
+.tip-card-content {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.tip-card-content h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.tip-card-content p {
+  font-size: .9rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+.tip-card-content .read-more {
+  font-size: .9rem;
+  font-weight: 600;
+  color: #15C15D;
+  text-decoration: none;
+  transition: color .2s;
+}
+.tip-card-content .read-more:hover { color: #0f9d4a; }
+
+/* Article pages */
+.article-meta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.article-meta span {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: .82rem;
+  font-weight: 500;
+}
+.article-meta .meta-category {
+  background: #e8f5ee;
+  color: #166534;
+}
+.article-meta .meta-date {
+  background: #f3f4f6;
+  color: #555;
+}
+.related-articles { padding: 60px 0; background: #f0faf4; }
+.related-articles .section-heading { text-align: center; }
+.related-articles .tips-grid { margin-top: 32px; }
+
 /* ---------- LEGAL / COMPLIANCE PAGES ---------- */
 .legal-content {
   max-width: 820px;
@@ -1923,6 +2014,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .locations-map iframe { height: 300px; border-radius: 12px; }
   .locations-cities-grid { grid-template-columns: repeat(2, 1fr); }
   .city-services-grid { grid-template-columns: 1fr; }
+  .tips-grid { grid-template-columns: repeat(2, 1fr); }
+  .tips-category { padding: 60px 0; }
+  .related-articles .tips-grid { grid-template-columns: repeat(2, 1fr); }
   .legal-content { padding: 40px 0 60px; }
   .legal-content h2 { font-size: 1.2rem; }
   .legal-content table th,
@@ -2010,6 +2104,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
 /* Mobile */
 @media (max-width: 480px) {
+  .tips-grid { grid-template-columns: 1fr; }
+  .related-articles .tips-grid { grid-template-columns: 1fr; }
+  .tip-card-icon { height: 140px; font-size: 2.5rem; }
   .container { padding: 0 16px; }
   .top-banner { padding: 8px 16px; font-size: .78rem; }
 
