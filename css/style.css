@@ -636,6 +636,13 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   bottom: -40px; left: 15%;
 }
 
+/* Remove white backgrounds so blobs flow between sections */
+.wu-page .how-it-works,
+.wu-page .faq,
+.wu-page .use-cases {
+  background: transparent;
+}
+
 /* FAQ: medium center-right, medium bottom-left (via ::after above) */
 .wu-page .faq::before {
   background: rgba(255,221,0,.07);
