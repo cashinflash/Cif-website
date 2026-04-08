@@ -2109,9 +2109,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .page-hero { padding: 48px 0 40px; }
   .page-hero .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 32px; }
   .loan-calc { max-width: 400px; margin: 0 auto; }
-  .features-composite { position: relative; width: 100%; margin: 0 auto; padding-bottom: 40px; }
+  .features-composite { position: relative; width: 100%; margin: 0 auto; padding-bottom: 20px; }
   .composite-photo { width: 62%; height: auto; min-height: 280px; border-radius: 16px; }
-  .composite-phone { position: absolute; right: -2%; top: 50%; transform: translateY(-50%); width: 55%; border-radius: 28px; padding: 5px 5px 7px; box-shadow: 0 12px 36px rgba(0,0,0,.18); }
+  .composite-phone { position: absolute; right: -2%; top: 5%; transform: none; width: 50%; border-radius: 28px; padding: 5px 5px 7px; box-shadow: 0 12px 36px rgba(0,0,0,.18); }
   .composite-phone-screen { border-radius: 22px; padding: 18px 14px; }
   .composite-phone-island { height: 18px; }
   .composite-logo { height: 18px; margin-bottom: 10px; }
@@ -2242,17 +2242,18 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .loan-calc { padding: 24px; }
   .calc-amount { font-size: 2rem; }
   .features-image img { height: 320px; }
-  .features-composite { padding-bottom: 0; display: flex; flex-direction: column; align-items: center; gap: 20px; }
-  .composite-photo { width: 100%; min-height: auto; height: 280px; border-radius: 12px; }
-  .composite-phone { position: static; transform: none; width: 70%; max-width: 280px; border-radius: 24px; padding: 4px 4px 6px; }
-  .composite-phone-screen { padding: 14px 10px; border-radius: 18px; }
-  .composite-phone-island { height: 14px; }
-  .composite-logo { height: 14px; margin-bottom: 8px; }
-  .composite-heading { font-size: .9rem; margin-bottom: 10px; }
-  .composite-illustration { padding: 14px; border-radius: 12px; margin-bottom: 10px; }
-  .composite-subtext { font-size: .65rem; }
-  .composite-amount { font-size: 1.1rem; margin-bottom: 10px; }
-  .composite-btn { font-size: .72rem; padding: 8px 12px; }
+  .features-composite { position: relative; width: 100%; padding-bottom: 0; overflow: hidden; }
+  .composite-photo { width: 58%; min-height: auto; height: 300px; border-radius: 12px; }
+  .composite-phone { position: absolute; right: -4%; top: 4%; transform: none; width: 48%; max-width: none; border-radius: 20px; padding: 3px 3px 5px; }
+  .composite-phone-screen { padding: 10px 8px; border-radius: 16px; }
+  .composite-phone-island { height: 10px; }
+  .composite-logo { height: 12px; margin-bottom: 6px; }
+  .composite-heading { font-size: .75rem; margin-bottom: 6px; }
+  .composite-illustration { padding: 8px; border-radius: 8px; margin-bottom: 6px; }
+  .composite-illustration svg { max-width: 80px; }
+  .composite-subtext { font-size: .6rem; }
+  .composite-amount { font-size: .95rem; margin-bottom: 8px; }
+  .composite-btn { font-size: .65rem; padding: 6px 10px; }
   .features-blob { width: 50px; height: 50px; opacity: 0.5; }
   .page-hero-blob-1 { width: 150px; height: 150px; }
   .page-hero-blob-2 { display: none; }
@@ -2344,4 +2345,6 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .hero-cta .btn-apply { width: 100%; justify-content: center; }
   .features-cta { flex-direction: column; gap: 12px; }
   .mobile-btn-row { flex-direction: column; }
+  .composite-photo { height: 260px; width: 56%; }
+  .composite-phone { width: 50%; right: -3%; }
 }
