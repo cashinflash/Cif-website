@@ -1765,9 +1765,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 /* ---------- CONTACT US ---------- */
 .contact-hero-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: 48px;
-  align-items: start;
+  align-items: center;
   padding: 80px 0 60px;
 }
 .contact-hero-content h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 24px; }
@@ -1777,8 +1777,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 }
 .contact-image-blob {
   position: absolute;
-  width: 400px; height: 400px;
-  top: -40px; right: -60px;
+  width: 500px; height: 500px;
+  top: -50px; right: -70px;
   background: rgba(21,193,93,.08);
   border-radius: 50%;
   z-index: 0;
@@ -1790,7 +1790,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   position: relative;
   z-index: 1;
   width: 100%;
-  height: auto;
+  height: 580px;
+  object-fit: cover;
   display: block;
   border-radius: 20px;
 }
@@ -1814,12 +1815,12 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .contact-form textarea { resize: vertical; min-height: 120px; }
 .contact-form .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
 .btn-submit {
-  background: #0d2b1e; color: #fff; font-weight: 600;
+  background: #15C15D; color: #fff; font-weight: 600;
   padding: 14px 40px; border-radius: 50px; border: none;
   font-family: inherit; font-size: .95rem; cursor: pointer;
   transition: background .2s, transform .15s;
 }
-.btn-submit:hover { background: #1a4a35; transform: translateY(-1px); }
+.btn-submit:hover { background: #12a84f; transform: translateY(-1px); }
 
 /* Contact Info Bar */
 .contact-info-bar { padding: 60px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
@@ -1831,21 +1832,12 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .contact-info-item a { color: #15C15D; font-weight: 500; }
 
 /* Visit Us */
-.contact-visit { padding: 80px 0; }
+.contact-visit { padding: 80px 0; background: linear-gradient(180deg, #f0faf4 0%, #e8f5ee 50%, #f0faf4 100%); }
 .contact-visit-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .contact-visit-map { border-radius: 16px; overflow: hidden; min-height: 350px; }
 .contact-visit-content h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
 .contact-visit-content p { color: #555; font-size: 1.05rem; line-height: 1.6; }
 
-/* Fastest Response */
-.contact-fastest { padding: 80px 0; border-top: 1px solid #eee; }
-.contact-fastest-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center; }
-.contact-fastest-image { border-radius: 16px; overflow: hidden; }
-.contact-fastest-image img { width: 100%; height: 400px; object-fit: cover; display: block; }
-.contact-fastest-content h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
-.contact-fastest-content p { color: #333; line-height: 1.6; }
-.contact-fastest-content ul { margin: 12px 0 0 20px; color: #333; line-height: 2; }
-.contact-fastest-content a { color: #15C15D; font-weight: 500; }
 
 /* ---------- ARTICLE FEATURED IMAGE ---------- */
 .article-featured-image {
@@ -2165,11 +2157,10 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
   .contact-hero-layout { grid-template-columns: 1fr; }
   .contact-hero-image { position: static; }
+  .contact-hero-image img { height: 350px; }
   .contact-form .form-row-3 { grid-template-columns: 1fr; }
   .contact-info-grid { grid-template-columns: 1fr; }
   .contact-visit-layout { grid-template-columns: 1fr; }
-  .contact-fastest-layout { grid-template-columns: 1fr; }
-  .contact-fastest-image img { height: 280px; }
   .article-featured-image img { height: 220px; }
 
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
