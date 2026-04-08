@@ -1762,6 +1762,61 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .city-nearest .location-card { max-width: 500px; margin: 24px auto 0; }
 .city-other-cities { padding: 60px 0; }
 
+/* ---------- CONTACT US ---------- */
+.contact-section { padding: 80px 0; }
+.contact-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+.contact-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  transition: transform .2s, box-shadow .2s;
+}
+.contact-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+.contact-card-icon {
+  width: 64px; height: 64px;
+  background: #e8f5ee;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+}
+.contact-card h3 { font-size: 1.25rem; margin-bottom: 8px; color: #0d2b1e; }
+.contact-card .contact-detail { font-size: 1.1rem; font-weight: 600; color: #15C15D; margin-bottom: 8px; }
+.contact-card .contact-detail a { color: #15C15D; }
+.contact-card .contact-hours { font-size: .85rem; color: #666; margin-bottom: 16px; line-height: 1.6; }
+.contact-card .contact-cta {
+  display: inline-block; padding: 10px 24px;
+  border: 2px solid #15C15D; border-radius: 50px;
+  color: #15C15D; font-weight: 600; font-size: .9rem;
+  transition: all .2s;
+}
+.contact-card .contact-cta:hover { background: #15C15D; color: #fff; }
+
+.quick-help { padding: 80px 0; background: #f8f9fa; }
+.quick-help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
+.quick-help-card {
+  background: #fff; border-radius: 12px; padding: 32px 24px;
+  text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  transition: transform .2s, box-shadow .2s;
+}
+.quick-help-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
+.quick-help-card-icon {
+  width: 56px; height: 56px;
+  background: #e8f5ee; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+}
+.quick-help-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.quick-help-card p { font-size: .9rem; color: #555; margin-bottom: 16px; }
+.quick-help-card a.contact-cta { display: inline-block; padding: 8px 20px; border: 2px solid #15C15D; border-radius: 50px; color: #15C15D; font-weight: 600; font-size: .85rem; transition: all .2s; }
+.quick-help-card a.contact-cta:hover { background: #15C15D; color: #fff; }
+
+.complaints-section { padding: 60px 0; }
+.complaints-section .container { max-width: 800px; text-align: center; }
+.complaints-section p { font-size: .9rem; color: #555; line-height: 1.7; margin-bottom: 12px; }
+.complaints-section a { color: #15C15D; font-weight: 500; }
+
 /* ---------- MONEY TIPS ---------- */
 .tips-category { padding: 80px 0; }
 .tips-category:nth-child(odd) { background: #f0faf4; }
@@ -2061,6 +2116,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
   .pre-footer { padding: 60px 0; }
   .pre-footer h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
+
+  .contact-cards { grid-template-columns: 1fr; }
+  .quick-help-grid { grid-template-columns: 1fr; }
 
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
