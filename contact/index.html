@@ -108,109 +108,143 @@
 </header>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 3. CONTACT HERO WITH IMAGE -->
+<!-- 3. CONTACT FORM + IMAGE HERO -->
 <!-- ══════════════════════════════════════ -->
 <section>
   <div class="container">
     <div class="contact-hero-layout">
       <div class="contact-hero-content">
         <h1 class="animate-on-scroll">Contact <span class="underline-accent">Us</span></h1>
-        <p class="hero-subtitle animate-on-scroll">We&rsquo;re here to help. Reach out to us however is most convenient for you.</p>
 
-        <div class="contact-cards" style="grid-template-columns:1fr;">
+        <form class="contact-form animate-on-scroll" action="https://formsubmit.co/info@cashinflash.com" method="POST">
+          <input type="hidden" name="_subject" value="New Contact Form Submission - Cash in Flash">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://cif-website.netlify.app/contact/">
 
-          <!-- Call Us -->
-          <div class="contact-card animate-on-scroll">
-            <div class="contact-card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#15C15D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-            </div>
-            <h3>Call Us</h3>
-            <p class="contact-detail"><a href="tel:7472707121">(747) 270-7121</a></p>
-            <p class="contact-hours">Mon&ndash;Fri: 10am&ndash;7pm PT<br>Sat: 10am&ndash;4pm PT</p>
-            <a href="tel:7472707121" class="contact-cta">Call now</a>
+          <div class="form-group">
+            <label for="contact-subject">Subject*</label>
+            <select id="contact-subject" name="subject" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Loan Question">Loan Question</option>
+              <option value="Payment Question">Payment Question</option>
+              <option value="Complaint">Complaint</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
 
-          <!-- Email Us -->
-          <div class="contact-card animate-on-scroll">
-            <div class="contact-card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#15C15D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <h3>Email Us</h3>
-            <p class="contact-detail"><a href="mailto:info@cashinflash.com">info@cashinflash.com</a></p>
-            <p class="contact-hours">We&rsquo;ll respond within 1 business day</p>
-            <a href="mailto:info@cashinflash.com" class="contact-cta">Send email</a>
+          <div class="form-group">
+            <label for="contact-name">Full name*</label>
+            <input type="text" id="contact-name" name="name" placeholder="Full name" required>
           </div>
 
-          <!-- Visit Us -->
-          <div class="contact-card animate-on-scroll">
-            <div class="contact-card-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#15C15D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="form-row-3">
+            <div class="form-group">
+              <label for="contact-email">Email*</label>
+              <input type="email" id="contact-email" name="email" placeholder="Email" required>
             </div>
-            <h3>Visit Us</h3>
-            <p class="contact-detail">Arleta, CA</p>
-            <p class="contact-hours">Mon&ndash;Fri: 10am&ndash;7pm<br>Sat: 10am&ndash;4pm</p>
-            <a href="/locations/arleta.html" class="contact-cta">Get directions</a>
+            <div class="form-group">
+              <label for="contact-phone">Phone</label>
+              <input type="tel" id="contact-phone" name="phone" placeholder="Phone">
+            </div>
+            <div class="form-group">
+              <label for="contact-city">City</label>
+              <input type="text" id="contact-city" name="city" placeholder="City">
+            </div>
           </div>
 
-        </div>
+          <div class="form-group">
+            <label for="contact-message">Tell us how we can help*</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Tell us how we can help" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-apply" style="margin-top:8px;">Submit</button>
+        </form>
+
       </div>
       <div class="contact-hero-image animate-on-scroll">
-        <img src="/images/girl-phone.jpeg" alt="Woman using Cash in Flash on her phone" width="600" height="500">
+        <img src="/images/girl-phone.jpeg" alt="Woman using Cash in Flash on her phone" width="600" height="600">
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════ -->
-<!-- 5. QUICK HELP -->
+<!-- 4. CONTACT INFO BAR -->
 <!-- ══════════════════════════════════════ -->
-<section class="quick-help">
-  <div class="container" style="text-align:center;">
-    <h2 class="section-heading animate-on-scroll">Looking for <span class="underline-accent">Something Else</span>?</h2>
-    <p class="animate-on-scroll" style="color:#555; max-width:600px; margin:0 auto 48px;">Quick links to our most popular resources.</p>
-    <div class="quick-help-grid">
-
-      <div class="quick-help-card animate-on-scroll">
-        <div class="quick-help-card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#15C15D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-        </div>
-        <h3>Apply for a Loan</h3>
-        <p>Get started with a quick online application &mdash; approval in minutes.</p>
-        <a href="https://apply.cashinflash.com/" class="contact-cta">Apply now</a>
-      </div>
-
-      <div class="quick-help-card animate-on-scroll">
-        <div class="quick-help-card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#15C15D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h3>Find a Location</h3>
-        <p>We serve all of California &mdash; find a store near you or apply online.</p>
-        <a href="/locations/" class="contact-cta">View locations</a>
-      </div>
-
-      <div class="quick-help-card animate-on-scroll">
-        <div class="quick-help-card-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#15C15D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <h3>Licenses &amp; Disclosures</h3>
-        <p>View our DFPI license, fee schedule, and borrower rights information.</p>
-        <a href="/licenses/" class="contact-cta">View details</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════ -->
-<!-- 6. COMPLAINTS / REGULATORY -->
-<!-- ══════════════════════════════════════ -->
-<section class="complaints-section">
+<section class="contact-info-bar">
   <div class="container">
-    <h2 class="section-heading animate-on-scroll" style="text-align:center;">Filing a <span class="underline-accent">Complaint</span></h2>
-    <p>If you have a complaint about our services, please contact us first at <a href="mailto:info@cashinflash.com">info@cashinflash.com</a> or <a href="tel:7472707121">(747) 270-7121</a> so we can resolve it directly.</p>
-    <p>If we are unable to resolve your complaint, you may also contact:</p>
-    <p><strong>California DFPI:</strong> <a href="tel:18662752677">1-866-275-2677</a> &mdash; <a href="https://dfpi.ca.gov/file-a-complaint/">dfpi.ca.gov/file-a-complaint</a></p>
-    <p><strong>Consumer Financial Protection Bureau (CFPB):</strong> <a href="tel:18554112372">1-855-411-2372</a> &mdash; <a href="https://www.consumerfinance.gov/complaint/">consumerfinance.gov/complaint</a></p>
+    <div class="contact-info-grid">
+      <div class="contact-info-item animate-on-scroll">
+        <div class="contact-info-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#15C15D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div>
+          <h3>Payday Loans</h3>
+          <p>Mon&ndash;Fri: 10am&ndash;7pm PT<br>Sat: 10am&ndash;4pm PT</p>
+          <p>Call: <a href="tel:7472707121">(747) 270-7121</a></p>
+          <p>Email: <a href="mailto:info@cashinflash.com">info@cashinflash.com</a></p>
+          <p>Complain: <a href="mailto:complaints@cashinflash.com">complaints@cashinflash.com</a></p>
+        </div>
+      </div>
+      <div class="contact-info-item animate-on-scroll">
+        <div class="contact-info-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#15C15D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <div>
+          <h3>Western Union</h3>
+          <p>Mon&ndash;Fri: 10am&ndash;7pm PT<br>Sat: 10am&ndash;4pm PT</p>
+          <p>Call: <a href="tel:7472707121">(747) 270-7121</a></p>
+          <p>Find answers: <a href="/services/western-union.html">Western Union services</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 5. VISIT US -->
+<!-- ══════════════════════════════════════ -->
+<section class="contact-visit">
+  <div class="container">
+    <div class="contact-visit-layout">
+      <div class="contact-visit-map animate-on-scroll">
+        <img src="https://maps.googleapis.com/maps/api/staticmap?center=Arleta,CA&zoom=10&size=600x400&maptype=roadmap&key=placeholder" alt="California locations map" style="width:100%; height:100%; object-fit:cover; border-radius:16px; background:#e8f5ee;">
+        <div class="visit-map-placeholder">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#15C15D" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <p>Serving all of California</p>
+        </div>
+      </div>
+      <div class="contact-visit-content animate-on-scroll">
+        <h2>Visit Us</h2>
+        <p>Find a Cash in Flash location near you or apply online from anywhere in California.</p>
+        <a href="/locations/" class="btn-apply" style="display:inline-block; margin-top:16px;">Find a location</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ -->
+<!-- 6. FOR THE FASTEST RESPONSE -->
+<!-- ══════════════════════════════════════ -->
+<section class="contact-fastest">
+  <div class="container">
+    <div class="contact-fastest-layout">
+      <div class="contact-fastest-image animate-on-scroll">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&h=600&fit=crop" alt="Customer service representative" width="500" height="600">
+      </div>
+      <div class="contact-fastest-content animate-on-scroll">
+        <h2>For the Fastest Response</h2>
+        <p><strong>Please include</strong></p>
+        <ul>
+          <li>Your full name</li>
+          <li>Phone number</li>
+          <li>Email address</li>
+          <li>Reason for your request, question, or complaint</li>
+        </ul>
+        <p style="margin-top:24px; font-size:.9rem; color:#555;">You may submit complaints in writing to:<br><strong>California DFPI:</strong> <a href="tel:18662752677">1-866-275-2677</a> &mdash; <a href="https://dfpi.ca.gov/file-a-complaint/">dfpi.ca.gov/file-a-complaint</a><br><strong>CFPB:</strong> <a href="tel:18554112372">1-855-411-2372</a> &mdash; <a href="https://www.consumerfinance.gov/complaint/">consumerfinance.gov/complaint</a></p>
+      </div>
+    </div>
   </div>
 </section>
 

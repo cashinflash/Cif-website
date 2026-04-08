@@ -1768,75 +1768,67 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: start;
-  padding: 80px 0 40px;
+  padding: 80px 0 60px;
 }
-.contact-hero-content h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 8px; }
-.contact-hero-content .hero-subtitle { color: #555; margin-bottom: 32px; font-size: 1.1rem; }
+.contact-hero-content h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 24px; }
 .contact-hero-image {
   border-radius: 20px;
   overflow: hidden;
-  background: #e8f5ee;
+  position: sticky;
+  top: 100px;
 }
 .contact-hero-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
-  min-height: 400px;
 }
-.contact-section { padding: 40px 0 80px; }
-.contact-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.contact-card {
+
+/* Contact Form */
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.contact-form .form-group { display: flex; flex-direction: column; gap: 4px; }
+.contact-form label { font-size: .8rem; color: #666; font-weight: 500; }
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%; padding: 12px 16px;
+  border: 1px solid #ddd; border-radius: 8px;
+  font-family: inherit; font-size: .95rem;
+  transition: border-color .2s;
   background: #fff;
-  border-radius: 16px;
-  padding: 40px 32px;
-  text-align: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
-  transition: transform .2s, box-shadow .2s;
 }
-.contact-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.1); }
-.contact-card-icon {
-  width: 64px; height: 64px;
-  background: #e8f5ee;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 20px;
-}
-.contact-card h3 { font-size: 1.25rem; margin-bottom: 8px; color: #0d2b1e; }
-.contact-card .contact-detail { font-size: 1.1rem; font-weight: 600; color: #15C15D; margin-bottom: 8px; }
-.contact-card .contact-detail a { color: #15C15D; }
-.contact-card .contact-hours { font-size: .85rem; color: #666; margin-bottom: 16px; line-height: 1.6; }
-.contact-card .contact-cta {
-  display: inline-block; padding: 10px 24px;
-  border: 2px solid #15C15D; border-radius: 50px;
-  color: #15C15D; font-weight: 600; font-size: .9rem;
-  transition: all .2s;
-}
-.contact-card .contact-cta:hover { background: #15C15D; color: #fff; }
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus { outline: none; border-color: #15C15D; }
+.contact-form textarea { resize: vertical; min-height: 120px; }
+.contact-form .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
 
-.quick-help { padding: 80px 0; background: #f8f9fa; }
-.quick-help-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 900px; margin: 0 auto; }
-.quick-help-card {
-  background: #fff; border-radius: 12px; padding: 32px 24px;
-  text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,.04);
-  transition: transform .2s, box-shadow .2s;
-}
-.quick-help-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,.08); }
-.quick-help-card-icon {
-  width: 56px; height: 56px;
-  background: #e8f5ee; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 16px;
-}
-.quick-help-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-.quick-help-card p { font-size: .9rem; color: #555; margin-bottom: 16px; }
-.quick-help-card a.contact-cta { display: inline-block; padding: 8px 20px; border: 2px solid #15C15D; border-radius: 50px; color: #15C15D; font-weight: 600; font-size: .85rem; transition: all .2s; }
-.quick-help-card a.contact-cta:hover { background: #15C15D; color: #fff; }
+/* Contact Info Bar */
+.contact-info-bar { padding: 60px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+.contact-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.contact-info-item { display: flex; gap: 16px; }
+.contact-info-icon { flex-shrink: 0; width: 40px; height: 40px; background: #e8f5ee; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.contact-info-item h3 { font-size: 1.1rem; margin-bottom: 8px; }
+.contact-info-item p { font-size: .9rem; color: #555; line-height: 1.7; margin-bottom: 2px; }
+.contact-info-item a { color: #15C15D; font-weight: 500; }
 
-.complaints-section { padding: 60px 0; }
-.complaints-section .container { max-width: 800px; text-align: center; }
-.complaints-section p { font-size: .9rem; color: #555; line-height: 1.7; margin-bottom: 12px; }
-.complaints-section a { color: #15C15D; font-weight: 500; }
+/* Visit Us */
+.contact-visit { padding: 80px 0; }
+.contact-visit-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.contact-visit-map { position: relative; border-radius: 16px; overflow: hidden; background: #e8f5ee; min-height: 350px; display: flex; align-items: center; justify-content: center; }
+.visit-map-placeholder { text-align: center; color: #15C15D; }
+.visit-map-placeholder p { font-size: 1.1rem; font-weight: 600; margin-top: 12px; color: #0d2b1e; }
+.contact-visit-content h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+.contact-visit-content p { color: #555; font-size: 1.05rem; line-height: 1.6; }
+
+/* Fastest Response */
+.contact-fastest { padding: 80px 0; border-top: 1px solid #eee; }
+.contact-fastest-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 48px; align-items: center; }
+.contact-fastest-image { border-radius: 16px; overflow: hidden; }
+.contact-fastest-image img { width: 100%; height: 400px; object-fit: cover; display: block; }
+.contact-fastest-content h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 16px; }
+.contact-fastest-content p { color: #333; line-height: 1.6; }
+.contact-fastest-content ul { margin: 12px 0 0 20px; color: #333; line-height: 2; }
+.contact-fastest-content a { color: #15C15D; font-weight: 500; }
 
 /* ---------- ARTICLE FEATURED IMAGE ---------- */
 .article-featured-image {
@@ -2155,9 +2147,12 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .pre-footer h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); }
 
   .contact-hero-layout { grid-template-columns: 1fr; }
-  .contact-hero-image img { min-height: 280px; }
-  .contact-cards { grid-template-columns: 1fr; }
-  .quick-help-grid { grid-template-columns: 1fr; }
+  .contact-hero-image { position: static; }
+  .contact-form .form-row-3 { grid-template-columns: 1fr; }
+  .contact-info-grid { grid-template-columns: 1fr; }
+  .contact-visit-layout { grid-template-columns: 1fr; }
+  .contact-fastest-layout { grid-template-columns: 1fr; }
+  .contact-fastest-image img { height: 280px; }
   .article-featured-image img { height: 220px; }
 
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
