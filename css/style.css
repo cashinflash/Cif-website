@@ -795,6 +795,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   align-items: center;
 }
 .features-image { display: flex; justify-content: center; }
+.features-image img { width: 100%; height: 500px; object-fit: cover; }
 .features-phone { max-width: 420px; }
 .features-content p { color: #555; margin-bottom: 28px; }
 .feature-cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
