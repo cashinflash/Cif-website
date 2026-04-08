@@ -795,7 +795,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   align-items: center;
 }
 .features-image { display: flex; justify-content: center; }
-.features-image img { width: 100%; height: 500px; object-fit: cover; }
+.features-image > img { width: 100%; height: 500px; object-fit: cover; }
 .features-phone { max-width: 420px; }
 .features-content p { color: #555; margin-bottom: 28px; }
 .feature-cards { display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px; }
@@ -2089,7 +2089,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .how-grid,
   .faq-grid { grid-template-columns: 1fr; }
   .features-image { order: -1; }
-  .features-image img { height: 400px; }
+  .features-image > img { height: 400px; }
   .carousel-slide { flex: 0 0 calc(50% - 12px); }
   .mega-menu { min-width: 560px; }
   .mega-col-brand { max-width: 180px; padding-left: 24px; }
@@ -2241,10 +2241,10 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .page-hero { padding: 40px 0 48px; }
   .loan-calc { padding: 24px; }
   .calc-amount { font-size: 2rem; }
-  .features-image img { height: 320px; }
-  .features-composite { position: relative; width: 100%; padding-bottom: 0; overflow: hidden; }
-  .composite-photo { width: 58%; min-height: auto; height: 300px; border-radius: 12px; }
-  .composite-phone { position: absolute; right: -4%; top: 4%; transform: none; width: 48%; max-width: none; border-radius: 20px; padding: 3px 3px 5px; }
+  .features-image > img { height: 320px; }
+  .features-composite { position: relative; width: 100%; padding-bottom: 0; }
+  .composite-photo { width: 55%; min-height: auto; height: 300px; border-radius: 12px; }
+  .composite-phone { position: absolute; right: -2%; top: 10%; transform: none; width: 50%; max-width: none; border-radius: 20px; padding: 3px 3px 5px; }
   .composite-phone-screen { padding: 10px 8px; border-radius: 16px; }
   .composite-phone-island { height: 10px; }
   .composite-logo { height: 12px; margin-bottom: 6px; }
