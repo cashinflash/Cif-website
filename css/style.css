@@ -270,7 +270,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   border-bottom: 1px solid #e5e5e5;
 }
 .mobile-menu-logo img {
-  height: 28px;
+  height: 24px;
   width: auto;
 }
 .mobile-menu-close {
@@ -2234,6 +2234,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
   .header-inner { height: 60px; }
   .logo img { height: 20px; }
+  .mobile-menu-logo img { height: 20px; }
 
   .social-proof { padding: 48px 0; }
   .social-proof .section-heading { margin-bottom: 32px; }
