@@ -449,7 +449,9 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .hero-link:hover { color: #15C15D; }
 
 .hero-badges { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-.hero-badges img { height: auto; }
+.hero-badges img { width: auto; }
+.hero-badges a img[alt="Google Reviews"] { height: 37px; }
+.hero-badges a img[alt="Trustpilot"] { height: 37px; }
 
 .hero-image { position: relative; display: flex; justify-content: center; align-items: center; }
 .wu-brand-hero { display: flex; align-items: center; justify-content: center; }
