@@ -35,8 +35,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","@id":"https://cashinflash.com/#organization","name":"Cash in Flash","alternateName":"Cash in Flash California","url":"https://cashinflash.com","logo":"https://cashinflash.com/images/white_logo_350.png","image":"https://cashinflash.com/images/og-default.png","description":"Licensed California payday loan and cash advance lender offering fast, same-day funding from $100 to $255.","telephone":"+1-747-270-7121","email":"info@cashinflash.com","areaServed":{"@type":"State","name":"California"},"sameAs":["https://www.facebook.com/cashinflash","https://www.instagram.com/cashinflash","https://twitter.com/cashinflash"],"priceRange":"$100-$255","contactPoint":{"@type":"ContactPoint","telephone":"+1-747-270-7121","contactType":"Customer Service","areaServed":"US-CA","availableLanguage":["English","Spanish"]}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cashinflash.com/"},{"@type":"ListItem","position":2,"name":"Accessibility","item":"https://cashinflash.com/accessibility/"}]}</script>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMNKT0S0N8"></script>
-  <script>
+    <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -44,6 +43,22 @@
       'send_page_view': true,
       'cookie_flags': 'SameSite=None;Secure'
     });
+
+    // Defer gtag.js until idle or first user interaction (keeps LCP fast)
+    (function(){
+      var loaded=false;
+      function load(){
+        if(loaded)return;loaded=true;
+        var s=document.createElement('script');
+        s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-QMNKT0S0N8';
+        document.head.appendChild(s);
+      }
+      if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:3000});}
+      else{setTimeout(load,2500);}
+      ['scroll','mousemove','touchstart','keydown','pointerdown'].forEach(function(e){
+        window.addEventListener(e,load,{once:true,passive:true});
+      });
+    })();
   </script>
   <script src="/js/analytics.js" defer></script>
 </head>

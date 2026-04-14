@@ -38,8 +38,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://cashinflash.com/#website","url":"https://cashinflash.com","name":"Cash in Flash","publisher":{"@id":"https://cashinflash.com/#organization"},"inLanguage":"en-US"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I qualify for a payday loan with bad credit?","acceptedAnswer":{"@type":"Answer","text":"Payday loan applications are reviewed using multiple factors—not just your credit score. Income and employment history are also considered during the approval process."}},{"@type":"Question","name":"What can I use a payday loan for?","acceptedAnswer":{"@type":"Answer","text":"A payday loan can help cover urgent expenses and everyday necessities until your next paycheck, such as rent, unexpected bills, or essential purchases."}},{"@type":"Question","name":"How much can I borrow?","acceptedAnswer":{"@type":"Answer","text":"Loan amounts typically range from $100 to $255."}},{"@type":"Question","name":"How do I repay my payday loan?","acceptedAnswer":{"@type":"Answer","text":"Your payday loan is usually due on your next payday. Depending on your state, you may have several in-person or online payment options available."}},{"@type":"Question","name":"Is the application process complicated?","acceptedAnswer":{"@type":"Answer","text":"Not at all. Our online application takes about 5 minutes and is hassle-free."}},{"@type":"Question","name":"Can I get a Payday Loan without a checking account?","acceptedAnswer":{"@type":"Answer","text":"Most states require an active checking account to qualify for a payday loan."}}]}</script>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMNKT0S0N8"></script>
-  <script>
+    <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -47,6 +46,22 @@
       'send_page_view': true,
       'cookie_flags': 'SameSite=None;Secure'
     });
+
+    // Defer gtag.js until idle or first user interaction (keeps LCP fast)
+    (function(){
+      var loaded=false;
+      function load(){
+        if(loaded)return;loaded=true;
+        var s=document.createElement('script');
+        s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-QMNKT0S0N8';
+        document.head.appendChild(s);
+      }
+      if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:3000});}
+      else{setTimeout(load,2500);}
+      ['scroll','mousemove','touchstart','keydown','pointerdown'].forEach(function(e){
+        window.addEventListener(e,load,{once:true,passive:true});
+      });
+    })();
   </script>
   <script src="/js/analytics.js" defer></script>
 </head>
