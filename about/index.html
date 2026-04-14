@@ -35,8 +35,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","@id":"https://cashinflash.com/#organization","name":"Cash in Flash","alternateName":"Cash in Flash California","url":"https://cashinflash.com","logo":"https://cashinflash.com/images/white_logo_350.png","image":"https://cashinflash.com/images/og-default.png","description":"Licensed California payday loan and cash advance lender offering fast, same-day funding from $100 to $255.","telephone":"+1-747-270-7121","email":"info@cashinflash.com","areaServed":{"@type":"State","name":"California"},"sameAs":["https://www.facebook.com/cashinflash","https://www.instagram.com/cashinflash","https://twitter.com/cashinflash"],"priceRange":"$100-$255","contactPoint":{"@type":"ContactPoint","telephone":"+1-747-270-7121","contactType":"Customer Service","areaServed":"US-CA","availableLanguage":["English","Spanish"]}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cashinflash.com/"},{"@type":"ListItem","position":2,"name":"About","item":"https://cashinflash.com/about/"}]}</script>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMNKT0S0N8"></script>
-  <script>
+    <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -44,6 +43,22 @@
       'send_page_view': true,
       'cookie_flags': 'SameSite=None;Secure'
     });
+
+    // Defer gtag.js until idle or first user interaction (keeps LCP fast)
+    (function(){
+      var loaded=false;
+      function load(){
+        if(loaded)return;loaded=true;
+        var s=document.createElement('script');
+        s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-QMNKT0S0N8';
+        document.head.appendChild(s);
+      }
+      if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:3000});}
+      else{setTimeout(load,2500);}
+      ['scroll','mousemove','touchstart','keydown','pointerdown'].forEach(function(e){
+        window.addEventListener(e,load,{once:true,passive:true});
+      });
+    })();
   </script>
   <script src="/js/analytics.js" defer></script>
 </head>
@@ -75,14 +90,14 @@
           <div class="dropdown-menu mega-menu">
             <div class="mega-cols">
               <div class="mega-col">
-                <h4>LOANS</h4>
+                <p class="mega-col-label">LOANS</p>
                 <a href="/loans/payday-loans.html">Payday Loans</a>
                 <a href="/loans/cash-advance.html">Cash Advance</a>
               </div>
               <div class="mega-col mega-col-brand">
                 <img src="/images/white_logo_350.png" alt="Cash in Flash" width="160" height="20">
                 <p>Get Fast Cash Today: Secure Payday Loans with Instant Approval and Same-Day Deposits. Apply Online in Minutes!</p>
-                <h4>MONEY, FIGURED OUT</h4>
+                <p class="mega-col-label">MONEY, FIGURED OUT</p>
               </div>
             </div>
           </div>
@@ -143,6 +158,9 @@
   <div class="mobile-menu-overlay" id="mobile-overlay"></div>
 </header>
 
+<main id="main-content">
+
+
 <!-- ══════════════════════════════════════ -->
 <!-- 3. PAGE HERO -->
 <!-- ══════════════════════════════════════ -->
@@ -174,15 +192,15 @@
       <p class="animate-on-scroll" style="margin-top:16px; color:#555;">From payday loans ($100–$255) and cash advances to Western Union money transfers, bill payments, and money orders, we offer the services our communities rely on. Whether you visit us in-store or apply online, we make the process quick, transparent, and respectful.</p>
       <div class="feature-cards">
         <div class="feature-card animate-on-scroll">
-          <h4>Fast & Simple</h4>
+          <h3>Fast & Simple</h3>
           <p>Get approved in minutes with a straightforward application — no complicated paperwork or long wait times.</p>
         </div>
         <div class="feature-card animate-on-scroll">
-          <h4>Fair & Transparent</h4>
+          <h3>Fair & Transparent</h3>
           <p>Every fee, term, and condition is explained upfront. No hidden charges, no surprises.</p>
         </div>
         <div class="feature-card animate-on-scroll">
-          <h4>Here When You Need Us</h4>
+          <h3>Here When You Need Us</h3>
           <p>Apply online, by phone, or at one of our California store locations — whatever works best for you.</p>
         </div>
       </div>
@@ -246,7 +264,7 @@
             <path d="M22 32l6 6 14-14" stroke="#15C15D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h4>Speed</h4>
+        <h3>Speed</h3>
         <p>We know time matters. That's why we make getting cash fast and easy — most approvals happen in minutes.</p>
       </div>
       <div class="use-case-card animate-on-scroll">
@@ -259,7 +277,7 @@
             <path d="M20 28h24" stroke="#15C15D" stroke-width="1.5"/>
           </svg>
         </div>
-        <h4>Transparency</h4>
+        <h3>Transparency</h3>
         <p>No surprises. We clearly explain every fee, term, and condition upfront so you can make informed decisions.</p>
       </div>
       <div class="use-case-card animate-on-scroll">
@@ -272,7 +290,7 @@
             <path d="M22 46c0-5.5 4.5-10 10-10s10 4.5 10 10" stroke="#15C15D" stroke-width="2" fill="none"/>
           </svg>
         </div>
-        <h4>Respect</h4>
+        <h3>Respect</h3>
         <p>Every customer is treated with dignity, regardless of their credit history or financial situation.</p>
       </div>
       <div class="use-case-card animate-on-scroll">
@@ -286,7 +304,7 @@
             <path d="M42 20h4M44 18v4" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
-        <h4>Community</h4>
+        <h3>Community</h3>
         <p>We're proud to serve California communities and help our neighbors get ahead when life throws a curveball.</p>
       </div>
     </div>
@@ -334,8 +352,8 @@
     <h2 class="section-heading animate-on-scroll">Committed to Our <span class="underline-accent">Community</span></h2>
     <p class="animate-on-scroll">At Cash in Flash, we believe financial services should be accessible to everyone. We're committed to operating with integrity, transparency, and respect in every interaction. Our goal is simple: help our California communities thrive, one customer at a time.</p>
     <div class="hero-badges animate-on-scroll" style="display:flex; gap:24px; justify-content:center; flex-wrap:wrap;">
-      <a href="#"><img src="/images/google-reviews-logo-sm.png.png" alt="Google Reviews" height="37"></a>
-      <a href="#"><img src="/images/trustpilot-logo.png" alt="Trustpilot" height="28"></a>
+      <a href="https://www.google.com/search?q=Cash+in+Flash+reviews" target="_blank" rel="noopener" aria-label="Read our Google Reviews"><img src="/images/google-reviews-logo-sm.png.png" alt="Google Reviews" width="109" height="37" loading="lazy" decoding="async"></a>
+      <a href="https://www.trustpilot.com/review/cashinflash.com" target="_blank" rel="noopener" aria-label="Read our Trustpilot reviews"><picture><source srcset="/images/trustpilot-logo.webp" type="image/webp"><img src="/images/trustpilot-logo.png" alt="Trustpilot" width="107" height="28" loading="lazy" decoding="async"></picture></a>
     </div>
   </div>
 </section>
@@ -354,18 +372,20 @@
 <!-- ══════════════════════════════════════ -->
 <!-- 10. FOOTER -->
 <!-- ══════════════════════════════════════ -->
+</main>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
-        <h5>Cash in Flash</h5>
+        <h3>Cash in Flash</h3>
         <ul>
           <li><a href="/about/">About</a></li>
           <li><a href="/money-tips/">Money Tips</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Support</h5>
+        <h3>Support</h3>
         <ul>
           <li><a href="/contact/">Contact Us</a></li>
           <li><a href="/locations/">Locations</a></li>
@@ -374,7 +394,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Products</h5>
+        <h3>Products</h3>
         <ul>
           <li><a href="/loans/payday-loans.html">Payday Loans</a></li>
           <li><a href="/loans/cash-advance.html">Cash Advances</a></li>
@@ -383,7 +403,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Sign up</h5>
+        <h3>Sign up</h3>
         <form class="footer-signup" onsubmit="return false">
           <input type="email" placeholder="Your Email" required>
           <button type="submit" class="btn-apply btn-sm">Subscribe</button>
@@ -393,8 +413,8 @@
 
     <div class="footer-bottom">
       <div class="footer-bottom-left">
-        <a href="/"><img src="/images/white_logo_350.png" alt="Cash in Flash" width="250" height="auto"></a>
-        <a href="/licenses/" class="footer-badge"><img src="/images/licensed-badge.png" alt="State Licensed Direct Lender" height="80"></a>
+        <a href="/"><img src="/images/white_logo_350.png" alt="Cash in Flash" width="250" height="46" loading="lazy" decoding="async"></a>
+        <a href="/licenses/" class="footer-badge"><picture><source srcset="/images/licensed-badge.webp" type="image/webp"><img src="/images/licensed-badge.png" alt="State Licensed Direct Lender" width="80" height="80" loading="lazy" decoding="async"></picture></a>
       </div>
       <div class="footer-bottom-links">
         <a href="/terms/">Terms of use</a>
@@ -415,10 +435,10 @@
     </div>
 
     <div class="footer-social">
-      <a href="#"><img src="/images/facebook.png" alt="Facebook" width="36" height="36"></a>
-      <a href="#"><svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ytBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff3e30"/><stop offset="100%" stop-color="#e01e10"/></linearGradient></defs><circle cx="18" cy="18" r="18" fill="url(#ytBg)"/><path d="M26 14.8c-.2-1-.7-1.6-1.6-1.8C23.2 12.8 18 12.8 18 12.8s-5.2 0-6.4.2c-.9.2-1.4.8-1.6 1.8-.2 1.2-.2 3.2-.2 3.2s0 2 .2 3.2c.2 1 .7 1.6 1.6 1.8 1.2.2 6.4.2 6.4.2s5.2 0 6.4-.2c.9-.2 1.4-.8 1.6-1.8.2-1.2.2-3.2.2-3.2s0-2-.2-3.2z" fill="#fff" fill-opacity=".95"/><polygon points="15.8,14.8 22,18 15.8,21.2" fill="url(#ytBg)"/></svg></a>
-      <a href="https://www.instagram.com/cashinflashusa/"><img src="/images/instagram.png" alt="Instagram" width="36" height="36"></a>
-      <a href="#"><img src="/images/twitter.png" alt="Twitter" width="36" height="36"></a>
+      <a href="#" aria-label="Cash in Flash on Facebook"><img src="/images/facebook.png" alt="Facebook" width="36" height="36"></a>
+      <a href="#" aria-label="Cash in Flash on YouTube"><svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ytBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff3e30"/><stop offset="100%" stop-color="#e01e10"/></linearGradient></defs><circle cx="18" cy="18" r="18" fill="url(#ytBg)"/><path d="M26 14.8c-.2-1-.7-1.6-1.6-1.8C23.2 12.8 18 12.8 18 12.8s-5.2 0-6.4.2c-.9.2-1.4.8-1.6 1.8-.2 1.2-.2 3.2-.2 3.2s0 2 .2 3.2c.2 1 .7 1.6 1.6 1.8 1.2.2 6.4.2 6.4.2s5.2 0 6.4-.2c.9-.2 1.4-.8 1.6-1.8.2-1.2.2-3.2.2-3.2s0-2-.2-3.2z" fill="#fff" fill-opacity=".95"/><polygon points="15.8,14.8 22,18 15.8,21.2" fill="url(#ytBg)"/></svg></a>
+      <a href="https://www.instagram.com/cashinflashusa/" aria-label="Cash in Flash on Instagram"><img src="/images/instagram.png" alt="Instagram" width="36" height="36"></a>
+      <a href="#" aria-label="Cash in Flash on Twitter"><img src="/images/twitter.png" alt="Twitter" width="36" height="36"></a>
     </div>
   </div>
 </footer>

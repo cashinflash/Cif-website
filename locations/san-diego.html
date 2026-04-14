@@ -36,8 +36,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://cashinflash.com/locations/san-diego.html#business","name":"Cash in Flash — San Diego","url":"https://cashinflash.com/locations/san-diego.html","image":"https://cashinflash.com/images/og-default.png","telephone":"+1-747-270-7121","priceRange":"$100-$255","description":"Payday loans and cash advances for San Diego, CA residents. Same-day funding, licensed California lender.","address":{"@type":"PostalAddress","addressLocality":"San Diego","addressRegion":"CA","addressCountry":"US"},"areaServed":{"@type":"City","name":"San Diego"},"parentOrganization":{"@id":"https://cashinflash.com/#organization"},"geo":{"@type":"GeoCoordinates","latitude":32.7157,"longitude":-117.1611}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cashinflash.com/"},{"@type":"ListItem","position":2,"name":"Locations","item":"https://cashinflash.com/locations/"},{"@type":"ListItem","position":3,"name":"San Diego","item":"https://cashinflash.com/locations/san-diego.html"}]}</script>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QMNKT0S0N8"></script>
-  <script>
+    <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -45,6 +44,22 @@
       'send_page_view': true,
       'cookie_flags': 'SameSite=None;Secure'
     });
+
+    // Defer gtag.js until idle or first user interaction (keeps LCP fast)
+    (function(){
+      var loaded=false;
+      function load(){
+        if(loaded)return;loaded=true;
+        var s=document.createElement('script');
+        s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-QMNKT0S0N8';
+        document.head.appendChild(s);
+      }
+      if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:3000});}
+      else{setTimeout(load,2500);}
+      ['scroll','mousemove','touchstart','keydown','pointerdown'].forEach(function(e){
+        window.addEventListener(e,load,{once:true,passive:true});
+      });
+    })();
   </script>
   <script src="/js/analytics.js" defer></script>
 </head>
@@ -69,14 +84,14 @@
           <div class="dropdown-menu mega-menu">
             <div class="mega-cols">
               <div class="mega-col">
-                <h4>LOANS</h4>
+                <p class="mega-col-label">LOANS</p>
                 <a href="/loans/payday-loans.html">Payday Loans</a>
                 <a href="/loans/cash-advance.html">Cash Advance</a>
               </div>
               <div class="mega-col mega-col-brand">
                 <img src="/images/white_logo_350.png" alt="Cash in Flash" width="160" height="20">
                 <p>Get Fast Cash Today: Secure Payday Loans with Instant Approval and Same-Day Deposits. Apply Online in Minutes!</p>
-                <h4>MONEY, FIGURED OUT</h4>
+                <p class="mega-col-label">MONEY, FIGURED OUT</p>
               </div>
             </div>
           </div>
@@ -133,6 +148,9 @@
   <div class="mobile-menu-overlay" id="mobile-overlay"></div>
 </header>
 
+<main id="main-content">
+
+
 <section class="page-hero">
   <div class="container" style="text-align:center; max-width:800px;">
     <h1 class="animate-on-scroll">Payday Loans in <span class="underline-accent">San Diego</span>, California</h1>
@@ -155,15 +173,15 @@
     <p class="animate-on-scroll" style="margin-top:16px; color:#555;">As a licensed California lender (DFPI License #10DFPI-214840), Cash in Flash serves all of San Diego County — from downtown and Pacific Beach to Chula Vista and Oceanside. Apply online in minutes from anywhere in San Diego and get funded as soon as the same day.</p>
     <div class="feature-cards" style="margin-top:32px;">
       <div class="feature-card animate-on-scroll">
-        <h4>Quick Approval</h4>
+        <h3>Quick Approval</h3>
         <p>Apply in about 5 minutes and get a decision fast — most approvals happen within minutes, not days.</p>
       </div>
       <div class="feature-card animate-on-scroll">
-        <h4>Same-Day Funding</h4>
+        <h3>Same-Day Funding</h3>
         <p>Once approved, receive your funds the same day. In-store pickup or direct deposit to your bank account.</p>
       </div>
       <div class="feature-card animate-on-scroll">
-        <h4>No Perfect Credit Needed</h4>
+        <h3>No Perfect Credit Needed</h3>
         <p>We consider more than just your credit score. Your income and employment history matter too.</p>
       </div>
     </div>
@@ -179,7 +197,7 @@
         <div class="use-case-icon">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="#e8f5ee"/><rect x="16" y="22" width="32" height="20" rx="3" fill="#15C15D" opacity=".15"/><circle cx="32" cy="32" r="6" fill="#15C15D"/><text x="32" y="36" font-family="Poppins,sans-serif" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">$</text></svg>
         </div>
-        <h4>Payday Loans</h4>
+        <h3>Payday Loans</h3>
         <p>Borrow $100 to $255, due on your next payday.</p>
         <a href="/loans/payday-loans.html" style="color:#15C15D; font-weight:600; font-size:.9rem;">Learn More</a>
       </div>
@@ -187,7 +205,7 @@
         <div class="use-case-icon">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="#e8f5ee"/><circle cx="32" cy="32" r="14" fill="#15C15D" opacity=".15"/><path d="M32 22v20M26 27c0-2.8 2.7-5 6-5s6 2.2 6 5-2.7 5-6 5-6 2.2-6 5 2.7 5 6 5 6-2.2 6-5" stroke="#15C15D" stroke-width="2"/></svg>
         </div>
-        <h4>Cash Advance</h4>
+        <h3>Cash Advance</h3>
         <p>Fast cash when you need it with flexible options.</p>
         <a href="/loans/cash-advance.html" style="color:#15C15D; font-weight:600; font-size:.9rem;">Learn More</a>
       </div>
@@ -195,7 +213,7 @@
         <div class="use-case-icon">
           <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" fill="#fff8e1"/><rect x="18" y="20" width="28" height="24" rx="3" fill="#F59E0B" opacity=".15"/><path d="M22 28h20M22 34h14M22 40h18" stroke="#F59E0B" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
-        <h4>Western Union</h4>
+        <h3>Western Union</h3>
         <p>Send money, pay bills, and purchase money orders.</p>
         <a href="/services/western-union.html" style="color:#15C15D; font-weight:600; font-size:.9rem;">Learn More</a>
       </div>
@@ -302,18 +320,20 @@
   </div>
 </section>
 
+</main>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col">
-        <h5>Cash in Flash</h5>
+        <h3>Cash in Flash</h3>
         <ul>
           <li><a href="/about/">About</a></li>
           <li><a href="/money-tips/">Money Tips</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Support</h5>
+        <h3>Support</h3>
         <ul>
           <li><a href="/contact/">Contact Us</a></li>
           <li><a href="/locations/">Locations</a></li>
@@ -322,7 +342,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Products</h5>
+        <h3>Products</h3>
         <ul>
           <li><a href="/loans/payday-loans.html">Payday Loans</a></li>
           <li><a href="/loans/cash-advance.html">Cash Advances</a></li>
@@ -331,7 +351,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Sign up</h5>
+        <h3>Sign up</h3>
         <form class="footer-signup" onsubmit="return false">
           <input type="email" placeholder="Your Email" required>
           <button type="submit" class="btn-apply btn-sm">Subscribe</button>
@@ -340,8 +360,8 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-bottom-left">
-        <a href="/"><img src="/images/white_logo_350.png" alt="Cash in Flash" width="250" height="auto"></a>
-        <a href="/licenses/" class="footer-badge"><img src="/images/licensed-badge.png" alt="State Licensed Direct Lender" height="80"></a>
+        <a href="/"><img src="/images/white_logo_350.png" alt="Cash in Flash" width="250" height="46" loading="lazy" decoding="async"></a>
+        <a href="/licenses/" class="footer-badge"><picture><source srcset="/images/licensed-badge.webp" type="image/webp"><img src="/images/licensed-badge.png" alt="State Licensed Direct Lender" width="80" height="80" loading="lazy" decoding="async"></picture></a>
       </div>
       <div class="footer-bottom-links">
         <a href="/terms/">Terms of use</a>
@@ -357,10 +377,10 @@
       <p>&copy; 2026 Dhan Corporation d/b/a Cash in Flash. All rights reserved. | <a href="/privacy/">Privacy Policy</a> | <a href="/terms/">Terms of Use</a> | <a href="/licenses/">Licenses &amp; Disclosures</a></p>
     </div>
     <div class="footer-social">
-      <a href="#"><img src="/images/facebook.png" alt="Facebook" width="36" height="36"></a>
-      <a href="#"><svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ytBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff3e30"/><stop offset="100%" stop-color="#e01e10"/></linearGradient></defs><circle cx="18" cy="18" r="18" fill="url(#ytBg)"/><path d="M26 14.8c-.2-1-.7-1.6-1.6-1.8C23.2 12.8 18 12.8 18 12.8s-5.2 0-6.4.2c-.9.2-1.4.8-1.6 1.8-.2 1.2-.2 3.2-.2 3.2s0 2 .2 3.2c.2 1 .7 1.6 1.6 1.8 1.2.2 6.4.2 6.4.2s5.2 0 6.4-.2c.9-.2 1.4-.8 1.6-1.8.2-1.2.2-3.2.2-3.2s0-2-.2-3.2z" fill="#fff" fill-opacity=".95"/><polygon points="15.8,14.8 22,18 15.8,21.2" fill="url(#ytBg)"/></svg></a>
-      <a href="https://www.instagram.com/cashinflashusa/"><img src="/images/instagram.png" alt="Instagram" width="36" height="36"></a>
-      <a href="#"><img src="/images/twitter.png" alt="Twitter" width="36" height="36"></a>
+      <a href="#" aria-label="Cash in Flash on Facebook"><img src="/images/facebook.png" alt="Facebook" width="36" height="36"></a>
+      <a href="#" aria-label="Cash in Flash on YouTube"><svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ytBg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff3e30"/><stop offset="100%" stop-color="#e01e10"/></linearGradient></defs><circle cx="18" cy="18" r="18" fill="url(#ytBg)"/><path d="M26 14.8c-.2-1-.7-1.6-1.6-1.8C23.2 12.8 18 12.8 18 12.8s-5.2 0-6.4.2c-.9.2-1.4.8-1.6 1.8-.2 1.2-.2 3.2-.2 3.2s0 2 .2 3.2c.2 1 .7 1.6 1.6 1.8 1.2.2 6.4.2 6.4.2s5.2 0 6.4-.2c.9-.2 1.4-.8 1.6-1.8.2-1.2.2-3.2.2-3.2s0-2-.2-3.2z" fill="#fff" fill-opacity=".95"/><polygon points="15.8,14.8 22,18 15.8,21.2" fill="url(#ytBg)"/></svg></a>
+      <a href="https://www.instagram.com/cashinflashusa/" aria-label="Cash in Flash on Instagram"><img src="/images/instagram.png" alt="Instagram" width="36" height="36"></a>
+      <a href="#" aria-label="Cash in Flash on Twitter"><img src="/images/twitter.png" alt="Twitter" width="36" height="36"></a>
     </div>
   </div>
 </footer>
