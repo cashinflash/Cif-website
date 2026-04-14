@@ -58,5 +58,36 @@
   to = "/"
   status = 301
 
+# WordPress blog archives — old taxonomy URLs Google may still have indexed
+[[redirects]]
+  from = "/category/*"
+  to = "/money-tips/"
+  status = 301
+
+[[redirects]]
+  from = "/tag/*"
+  to = "/money-tips/"
+  status = 301
+
+[[redirects]]
+  from = "/author/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/feed"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/feed/*"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/xmlrpc.php"
+  to = "/"
+  status = 301
+
 # Trailing-slash canonicalization for directory-style pages (optional)
 # Netlify handles this automatically for /path/index.html
