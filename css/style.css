@@ -27,7 +27,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .underline-accent {
   position: relative;
   display: inline-block;
-  color: #14e56b;
+  color: #0a8f3f;
 }
 .underline-accent::after {
   content: '';
@@ -699,7 +699,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   overflow: hidden;
 }
 .social-proof .section-heading { margin-bottom: 48px; color: #fff; }
-.social-proof .underline-accent { color: #14e56b; }
+.social-proof .underline-accent { color: #0a8f3f; }
 .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .proof-card {
   padding: 40px 28px;
