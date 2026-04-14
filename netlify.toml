@@ -1,3 +1,5 @@
+# Netlify build configuration
+# Form detection: enabled in dashboard -> site settings -> forms
 [build]
   publish = "."
 
