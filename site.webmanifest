@@ -1,0 +1,12 @@
+{
+  "name": "Cash in Flash",
+  "short_name": "Cash in Flash",
+  "icons": [
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#15C15D",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/"
+}

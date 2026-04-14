@@ -1,0 +1,9 @@
+# Originals (pre-optimization) - kept locally but not tracked
+images/originals/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
