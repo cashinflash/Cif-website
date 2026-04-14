@@ -1123,7 +1123,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   display: flex;
   align-items: center;
   gap: 72px;
-  padding-right: 72px;            /* trailing gap → makes the -50% loop seamless */
+  padding-right: 72px;            /* trailing gap → makes the -25% loop land exactly on a copy */
   animation: scroll-marquee 28s linear infinite;
   width: max-content;
 }
@@ -1168,7 +1168,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 
 @keyframes scroll-marquee {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-25%); }   /* shift by one copy of 4 → seamless (4 copies in DOM) */
 }
 
 /* ---------- 11. PRE-FOOTER CTA ---------- */
