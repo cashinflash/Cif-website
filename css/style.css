@@ -184,11 +184,14 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .mega-menu { min-width: 680px; left: -60px; transform: translateX(0) translateY(8px); }
 .nav-item.has-dropdown:hover .mega-menu { transform: translateX(0) translateY(0); }
 .mega-cols { display: flex; gap: 40px; }
-.mega-col h4 {
+.mega-col h4,
+.mega-col .mega-col-label {
   font-size: .75rem;
   letter-spacing: .08em;
   color: #15C15D;
   margin-bottom: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 /* Mega menu branding column */
@@ -812,7 +815,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   border-color: #15C15D;
   box-shadow: 0 4px 16px rgba(21,193,93,.1);
 }
-.feature-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+.feature-card h3, .feature-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
 .feature-card p { color: #777; font-size: .88rem; margin-bottom: 0; }
 .features-cta { display: flex; align-items: center; gap: 20px; }
 .features-link {
@@ -1168,7 +1171,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   gap: 40px;
   margin-bottom: 48px;
 }
-.footer-col h5 {
+.footer-col h3 {
   color: #fff;
   font-size: .85rem;
   font-weight: 600;
@@ -1541,7 +1544,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   justify-content: center;
   margin: 0 auto 16px;
 }
-.use-case-card h4 {
+.use-case-card h3, .use-case-card h4 {
   font-size: 1rem;
   font-weight: 700;
   color: #1a1a2e;
@@ -1594,7 +1597,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   border-color: #15C15D;
   box-shadow: 0 4px 20px rgba(21,193,93,.1);
 }
-.requirement-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
+.requirement-card h3, .requirement-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: #1a1a2e; }
 .requirement-card p { color: #555; font-size: .88rem; }
 
 /* ---------- LOAN PRODUCTS (Landing Page) ---------- */
