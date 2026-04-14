@@ -11,7 +11,8 @@
   <meta name="theme-color" content="#15C15D">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"></noscript>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="canonical" href="https://cashinflash.com/about/">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
@@ -162,7 +163,10 @@
   <div class="features-blob" aria-hidden="true"></div>
   <div class="container features-grid">
     <div class="features-image animate-on-scroll">
-      <img src="/images/about-us.jpeg" alt="Cash in Flash team" style="border-radius:16px; width:100%;" width="800" height="533" fetchpriority="high">
+      <picture>
+        <source srcset="/images/about-us.webp" type="image/webp">
+        <img src="/images/about-us.jpeg" alt="Cash in Flash team" style="border-radius:16px; width:100%;" width="800" height="533" fetchpriority="high" decoding="async">
+      </picture>
     </div>
     <div class="features-content">
       <h2 class="section-heading animate-on-scroll">Who <span class="underline-accent">We Are</span></h2>
