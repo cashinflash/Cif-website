@@ -5,11 +5,26 @@
 (function () {
   'use strict';
 
-  /* ---------- STICKY HEADER SHADOW ---------- */
+  /* ---------- STICKY HEADER SHADOW ----------
+     IntersectionObserver-based: a 10px sentinel at the top of the
+     document toggles `scrolled` on the header when the page scrolls
+     past it. Zero scroll-listener work, zero forced reflow. */
   var header = document.getElementById('site-header');
-  window.addEventListener('scroll', function () {
-    header.classList.toggle('scrolled', window.scrollY > 10);
-  });
+  if (header && 'IntersectionObserver' in window) {
+    var sentinel = document.createElement('div');
+    sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:10px;pointer-events:none';
+    sentinel.setAttribute('aria-hidden', 'true');
+    document.body.prepend(sentinel);
+    var hdrObserver = new IntersectionObserver(function (entries) {
+      header.classList.toggle('scrolled', !entries[0].isIntersecting);
+    }, { threshold: 0 });
+    hdrObserver.observe(sentinel);
+  } else if (header) {
+    // Fallback for ancient browsers
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+  }
 
   /* ---------- MOBILE MENU ---------- */
   var toggle = document.getElementById('menu-toggle');
