@@ -1112,7 +1112,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   animation-delay: -3s;
 }
 
-/* ---------- 10. BRAND MARQUEE ---------- */
+/* ---------- 10. TRUST MARQUEE ---------- */
 .marquee {
   padding: 48px 0;
   overflow: hidden;
@@ -1122,11 +1122,39 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 .marquee-track {
   display: flex;
   align-items: center;
-  gap: 60px;
-  animation: scroll-marquee 20s linear infinite;
+  gap: 72px;
+  animation: scroll-marquee 28s linear infinite;
   width: max-content;
 }
-.marquee-track img { height: 36px; width: auto; flex-shrink: 0; opacity: .5; }
+.marquee-track img {
+  height: 40px;
+  width: auto;
+  flex-shrink: 0;
+  opacity: 1;
+  transition: transform 0.2s ease;
+}
+.marquee-track a { display: inline-flex; align-items: center; }
+.marquee-track a:hover img,
+.marquee-track a:focus-visible img {
+  transform: scale(1.08);
+}
+
+/* Pause animation on hover/focus so logos are actually clickable */
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    width: auto;
+  }
+}
 
 @keyframes scroll-marquee {
   0% { transform: translateX(0); }
@@ -2310,7 +2338,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   .app-buttons { flex-wrap: wrap; }
 
   .marquee-track { gap: 40px; }
-  .marquee-track img { height: 28px; }
+  .marquee-track img { height: 32px; }
 
   /* WU Hero mobile */
   .wu-hero { min-height: auto; }
