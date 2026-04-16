@@ -710,7 +710,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   text-align: center;
   color: #fff;
   background: linear-gradient(160deg, rgba(26,50,40,0.88), rgba(30,60,48,0.92)),
-              url('/images/Group-1707490245-2.png') center top/cover no-repeat;
+              url('/images/Group-1707490245-2.webp') center top/cover no-repeat;
   background-color: #1e3a2f;
   overflow: hidden;
 }
