@@ -90,12 +90,7 @@
       return Math.ceil(totalOriginal / getSlidesPerView());
     }
 
-    /* Cache viewport width — reading offsetWidth during goToPage() forces
-       synchronous layout on every click/swipe. Update via ResizeObserver. */
     var cachedTrackWidth = 0;
-    function measureTrackWidth() {
-      cachedTrackWidth = track.parentElement.offsetWidth;
-    }
 
     function buildDots() {
       dotsContainer.innerHTML = '';
@@ -123,21 +118,21 @@
       });
     }
 
-    measureTrackWidth();
-    buildDots();
     if ('ResizeObserver' in window) {
-      new ResizeObserver(function () {
-        measureTrackWidth();
+      new ResizeObserver(function (entries) {
+        cachedTrackWidth = entries[0].contentRect.width;
         buildDots();
         goToPage(0);
       }).observe(track.parentElement);
     } else {
+      cachedTrackWidth = track.parentElement.offsetWidth;
       window.addEventListener('resize', function () {
-        measureTrackWidth();
+        cachedTrackWidth = track.parentElement.offsetWidth;
         buildDots();
         goToPage(0);
       });
     }
+    buildDots();
 
     /* Touch/swipe support */
     var startX = 0;
