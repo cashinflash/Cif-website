@@ -829,7 +829,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   box-shadow: 0 4px 16px rgba(21,193,93,.1);
 }
 .feature-card h3, .feature-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
-.feature-card p { color: #777; font-size: .88rem; margin-bottom: 0; }
+.feature-card p { color: #555; font-size: .88rem; margin-bottom: 0; }
 .features-cta { display: flex; align-items: center; gap: 20px; }
 .features-link {
   font-weight: 500;
