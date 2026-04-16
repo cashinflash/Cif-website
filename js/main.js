@@ -90,6 +90,13 @@
       return Math.ceil(totalOriginal / getSlidesPerView());
     }
 
+    /* Cache viewport width — reading offsetWidth during goToPage() forces
+       synchronous layout on every click/swipe. Update via ResizeObserver. */
+    var cachedTrackWidth = 0;
+    function measureTrackWidth() {
+      cachedTrackWidth = track.parentElement.offsetWidth;
+    }
+
     function buildDots() {
       dotsContainer.innerHTML = '';
       var pages = getTotalPages();
@@ -108,7 +115,7 @@
       var perView = getSlidesPerView();
       var pages = getTotalPages();
       currentPage = Math.max(0, Math.min(page, pages - 1));
-      var slideWidth = track.parentElement.offsetWidth / perView;
+      var slideWidth = cachedTrackWidth / perView;
       track.style.transform = 'translateX(' + -(currentPage * perView * slideWidth) + 'px)';
 
       dotsContainer.querySelectorAll('.dot').forEach(function (d, i) {
@@ -116,11 +123,21 @@
       });
     }
 
+    measureTrackWidth();
     buildDots();
-    window.addEventListener('resize', function () {
-      buildDots();
-      goToPage(0);
-    });
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(function () {
+        measureTrackWidth();
+        buildDots();
+        goToPage(0);
+      }).observe(track.parentElement);
+    } else {
+      window.addEventListener('resize', function () {
+        measureTrackWidth();
+        buildDots();
+        goToPage(0);
+      });
+    }
 
     /* Touch/swipe support */
     var startX = 0;
