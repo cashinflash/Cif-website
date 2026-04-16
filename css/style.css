@@ -745,7 +745,8 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 @supports not (backdrop-filter: blur(16px)) {
   .proof-card.glass { background: rgba(40,70,55,.75); }
 }
-.proof-icon { margin-bottom: 16px; }
+.proof-icon { margin-bottom: 16px; color: #fff; }
+.proof-icon svg { display: block; margin: 0 auto; }
 .proof-icon img { margin: 0 auto; filter: brightness(0) invert(1); }
 .proof-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: #fff; }
 .proof-card p { color: rgba(255,255,255,.75); font-size: .9rem; }
