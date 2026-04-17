@@ -80,9 +80,12 @@
     var totalOriginal = slides.length / 2; // slides are duplicated in HTML
     var currentPage = 0;
 
+    var mqMobile = window.matchMedia('(max-width: 768px)');
+    var mqTablet = window.matchMedia('(max-width: 1024px)');
+
     function getSlidesPerView() {
-      if (window.innerWidth <= 768) return 1;
-      if (window.innerWidth <= 1024) return 2;
+      if (mqMobile.matches) return 1;
+      if (mqTablet.matches) return 2;
       return 3;
     }
 
