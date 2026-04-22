@@ -717,9 +717,7 @@
     };
 
     if (!CIF_FORM_URL) {
-      // Not wired yet — show a friendly "call us" message so the
-      // customer isn't stranded during rollout.
-      return fail('This form isn\'t accepting submissions yet. Please call us at (747) 270-7121 so we can help.');
+      return fail('Please call us at (747) 270-7121 so one of our representatives can assist you.');
     }
 
     var headers = { 'Content-Type': 'application/json' };
@@ -745,28 +743,27 @@
       }
       show(success);
     }).catch(function (err) {
-      console.error('IF submit failed:', err);
+      // Diagnostic for us, never shown to the customer.
+      if (window.console && console.error) console.error('IF submit failed:', err);
+      var CALL = 'call us at (747) 270-7121 and we can complete this for you over the phone.';
       var msg;
-      if (!err || !err.status) {
-        msg = 'Your browser blocked the request (network / CORS). Hard-refresh this page (Ctrl+Shift+R or Cmd+Shift+R) and try again. If it still fails, call (747) 270-7121.';
-      } else if (err.status === 404) {
-        msg = 'Our submission endpoint wasn\'t found. Hard-refresh this page (Ctrl+Shift+R) — you may be on a cached version.';
-      } else if (err.status >= 500) {
-        msg = 'Our server had a problem (' + err.status + '). Please try again in a minute or call (747) 270-7121.';
-      } else if (err.bodyObj && err.bodyObj.error) {
+      if (err && err.bodyObj && err.bodyObj.error) {
+        // The Lambda told us something specific about the submitted
+        // data — show the customer what to fix.
         var map = {
-          card_invalid: 'The card number looks invalid. Please double-check it.',
-          exp_invalid: 'The expiration date is not valid.',
-          ccv_invalid: 'CVV should be 3 or 4 digits.',
-          zip_invalid: 'Please enter a 5-digit ZIP.',
-          ack_required: 'Please check the acknowledgment box.',
-          bad_body: 'The form data was rejected. Please refresh and try again.',
-          encryption_failed: 'We couldn\'t securely process that. Please try again.',
-          storage_failed: 'We couldn\'t save that just now. Please try again.',
+          card_invalid: 'The card number doesn\'t look right. Please double-check it and try again.',
+          exp_invalid:  'The expiration date isn\'t valid. Please check and try again.',
+          ccv_invalid:  'The CVV should be 3 or 4 digits.',
+          zip_invalid:  'Please enter a valid 5-digit ZIP code.',
+          ack_required: 'Please check the acknowledgment box before submitting.',
+          bad_body:     'Something about your submission wasn\'t accepted. Please re-enter your information and try again.',
         };
-        msg = map[err.bodyObj.error] || ('Error: ' + err.bodyObj.error);
+        msg = map[err.bodyObj.error] || ('We couldn\'t process this submission. Please try again, or ' + CALL);
       } else {
-        msg = 'Submit failed (HTTP ' + err.status + '). Please try again.';
+        // Generic failures — network, CORS, 4xx/5xx from the API.
+        // Customers don't need the technical cause; they need a
+        // calm next step.
+        msg = 'We weren\'t able to submit your information just now. Please try again in a moment, or ' + CALL;
       }
       fail(msg);
     }).finally(function () {
