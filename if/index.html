@@ -729,11 +729,46 @@
       method: 'POST',
       headers: headers,
       body: JSON.stringify(payload),
-    }).then(function (r) {
-      if (!r.ok) throw new Error('http ' + r.status);
+    }).then(async function (r) {
+      var text = await r.text();
+      var bodyObj = null;
+      try { bodyObj = JSON.parse(text); } catch (_) { /* non-JSON */ }
+      if (!r.ok) {
+        var e = new Error('http ' + r.status);
+        e.status = r.status; e.bodyObj = bodyObj;
+        throw e;
+      }
+      if (bodyObj && bodyObj.success === false) {
+        var e2 = new Error(bodyObj.error || 'submit_failed');
+        e2.status = r.status; e2.bodyObj = bodyObj;
+        throw e2;
+      }
       show(success);
-    }).catch(function () {
-      fail('We couldn\'t submit the form. Please try again or call us at (747) 270-7121.');
+    }).catch(function (err) {
+      console.error('IF submit failed:', err);
+      var msg;
+      if (!err || !err.status) {
+        msg = 'Your browser blocked the request (network / CORS). Hard-refresh this page (Ctrl+Shift+R or Cmd+Shift+R) and try again. If it still fails, call (747) 270-7121.';
+      } else if (err.status === 404) {
+        msg = 'Our submission endpoint wasn\'t found. Hard-refresh this page (Ctrl+Shift+R) — you may be on a cached version.';
+      } else if (err.status >= 500) {
+        msg = 'Our server had a problem (' + err.status + '). Please try again in a minute or call (747) 270-7121.';
+      } else if (err.bodyObj && err.bodyObj.error) {
+        var map = {
+          card_invalid: 'The card number looks invalid. Please double-check it.',
+          exp_invalid: 'The expiration date is not valid.',
+          ccv_invalid: 'CVV should be 3 or 4 digits.',
+          zip_invalid: 'Please enter a 5-digit ZIP.',
+          ack_required: 'Please check the acknowledgment box.',
+          bad_body: 'The form data was rejected. Please refresh and try again.',
+          encryption_failed: 'We couldn\'t securely process that. Please try again.',
+          storage_failed: 'We couldn\'t save that just now. Please try again.',
+        };
+        msg = map[err.bodyObj.error] || ('Error: ' + err.bodyObj.error);
+      } else {
+        msg = 'Submit failed (HTTP ' + err.status + '). Please try again.';
+      }
+      fail(msg);
     }).finally(function () {
       submit.disabled = false;
       submit.textContent = 'Submit';
