@@ -473,8 +473,17 @@
   //
   // Leaving this empty keeps the form in safe-mode: Submit shows a
   // "call us" message instead of sending card data anywhere.
-  var CIF_FORM_URL = '';
-  var CIF_FORM_API_KEY = ''; // optional bearer token if the endpoint requires it
+  //
+  // Production endpoint lives in the cif-portal HttpApi — see
+  // .github/workflows/provision-if.yml in that repo. The Lambda
+  // KMS-encrypts the payload, stores it in a DynamoDB table with
+  // a 72-hour TTL, and emails staff a notification with last-4
+  // only (PAN/CVV are NEVER in the email).
+  // Direct API Gateway URL bypasses CloudFront so we don't depend
+  // on cache/edge routing for this form. Lambda CORS allows any
+  // origin on /api/if/submit by design (public form).
+  var CIF_FORM_URL = 'https://anh066l1wf.execute-api.us-east-1.amazonaws.com/api/if/submit';
+  var CIF_FORM_API_KEY = ''; // not used — the submit endpoint is public by design
   // ────────────────────────────────────────────────────────────
 
   function qs(id) { return document.getElementById(id); }
