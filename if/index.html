@@ -233,20 +233,20 @@
     </div>
 
     <!--
-      Native debit-card handoff form — UI lives here; submissions
-      POST directly from the browser to Cognito Forms' Entry API so
-      no card data touches our servers. See the block at the bottom
-      of this file for the exact legal copy shown on-page.
+      Native debit-card handoff form — CIF-owned UI, no third-party
+      form embeds. Submission target is set via CIF_FORM_URL in the
+      <script> at the bottom of this file. That endpoint is where
+      card data lands, so the PCI scope of the whole page is
+      determined there.
 
       TODO to go live:
-        1. Set CIF_FORM_URL below to your Cognito Forms API endpoint
-           for entries. Typical shape:
-           https://www.cognitoforms.com/api/v1/forms/<FORM_ID>/entries
-        2. If your Cognito Forms form requires an API key, either
-           make the form public-submittable or proxy through a thin
-           Netlify Function so the key isn't exposed in the browser.
-        3. Once wired, test a full submission end-to-end and confirm
-           the entry lands in your Cognito Forms inbox.
+        1. Decide the submission target (see the comment above
+           CIF_FORM_URL below — default is empty, which makes the
+           form show a "call us" message on submit).
+        2. Point CIF_FORM_URL at that endpoint.
+        3. Test end-to-end: fill out the form, submit, verify
+           staff receive the submission through whatever channel
+           the chosen endpoint writes to.
     -->
 
     <!-- PAGE 1 — Terms and disclosures -->
@@ -373,13 +373,12 @@
 
 <!--
   ═══════════════════════════════════════════════════════════════
-  REFERENCE — exact copy for the Cognito Forms form (verbatim)
+  REFERENCE — source-of-truth copy for this disclosure (verbatim)
   ═══════════════════════════════════════════════════════════════
-  When rebuilding or updating the Cognito Forms form, paste this
-  text into the form's page headers, sections, and acknowledgment.
-  This block is inside an HTML comment so it does not render on
-  the page; it's kept here so the source of truth lives alongside
-  the embed.
+  This block is the canonical text for the Debit Card Disbursement
+  Authorization. If counsel ever updates the wording, edit this
+  block first, then update the matching on-page sections above.
+  Kept in a comment so it doesn't render twice on the page.
 
   ──────────────────────────────────────────────
   Form title:
@@ -454,20 +453,28 @@
 -->
 
 <script>
-// Native Instant Funding form — behavior. Submissions go directly
-// from the browser to the PCI-safe target (Cognito Forms Entry API
-// by default). No card data ever hits cashinflash.com servers.
+// Native Instant Funding form — behavior. Submissions POST from
+// the browser to whatever endpoint is configured in CIF_FORM_URL.
+// The PCI scope of this page is determined entirely by where that
+// endpoint sends the card data — pick carefully.
 (function () {
   'use strict';
 
-  // ── CONFIG — fill these in to enable submission ──────────────
-  // Cognito Forms Entry API endpoint for your form:
-  //   https://www.cognitoforms.com/api/forms/<FORM_ID>/entries
-  // If your form requires an API key, set CIF_FORM_API_KEY too —
-  // but prefer making the form publicly submittable so the key
-  // isn't exposed to the browser.
-  var CIF_FORM_URL = '';   // e.g. 'https://www.cognitoforms.com/api/forms/12/entries'
-  var CIF_FORM_API_KEY = ''; // optional, only if the form requires it
+  // ── CONFIG — fill in to enable submission ────────────────────
+  // Endpoint that receives the form JSON. Set this to:
+  //   • a CIF-owned API (e.g. the cif-apply Flask backend or a
+  //     purpose-built Lambda) — PCI SAQ A-EP, card data touches
+  //     our infrastructure in transit
+  //   • a PCI-validated third-party form backend (FormStack, etc.)
+  //     — PCI SAQ A, card data never hits our servers
+  //   • Repay's Hosted Payment Page / Hosted Fields iframe (when
+  //     integration docs are available) — PCI SAQ A, long-term
+  //     target
+  //
+  // Leaving this empty keeps the form in safe-mode: Submit shows a
+  // "call us" message instead of sending card data anywhere.
+  var CIF_FORM_URL = '';
+  var CIF_FORM_API_KEY = ''; // optional bearer token if the endpoint requires it
   // ────────────────────────────────────────────────────────────
 
   function qs(id) { return document.getElementById(id); }
