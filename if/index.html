@@ -181,6 +181,19 @@
 .if-field input:focus,.if-field select:focus{
   outline:none;border-color:#0E8741;box-shadow:0 0 0 3px rgba(14,135,65,.14);
 }
+.if-field select:disabled{
+  background:#f0f4f2;color:#1a1a2e;cursor:not-allowed;opacity:1;
+  border-color:#d8dedb;
+}
+.if-field select:disabled + .if-lock-note{display:block;}
+.if-lock-note{display:none;font-size:.72rem;color:#6b7c72;margin-top:4px;}
+.if-card-status{display:block;min-height:18px;margin-top:6px;font-size:.82rem;font-weight:500;line-height:1.3;}
+.if-card-status.checking{color:#6b7c72;}
+.if-card-status.success{color:#0a5d2e;}
+.if-card-status.success::before{content:"✓  ";font-weight:700;}
+.if-card-status.neutral{color:#3a4a45;}
+.if-card-status.error{color:#8a1f1f;font-weight:600;}
+.if-card-status.error::before{content:"⚠  ";}
 .if-ack{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;
   background:#f7fafa;border:1px solid #e4e8e6;border-radius:8px;
   font-size:.9rem;color:#3a4a45;line-height:1.5;margin:6px 0 16px;cursor:pointer;}
@@ -309,18 +322,20 @@
       <div class="if-field">
         <label class="if-label" for="ifCardNumber">Debit card number <span aria-hidden="true">*</span></label>
         <input type="text" id="ifCardNumber" name="cardNumber" inputmode="numeric" autocomplete="cc-number" required maxlength="19" placeholder="1234 5678 9012 3456">
+        <small class="if-card-status" id="ifCardStatus" aria-live="polite"></small>
       </div>
 
       <div class="if-row-2">
         <div class="if-field">
           <label class="if-label" for="ifCardType">Debit card type <span aria-hidden="true">*</span></label>
           <select id="ifCardType" name="cardType" required>
-            <option value="">Select one…</option>
+            <option value="">Auto-detected</option>
             <option>Visa</option>
             <option>MasterCard</option>
             <option>Discover</option>
             <option>Amex</option>
           </select>
+          <small class="if-lock-note">Auto-detected from the card number</small>
         </div>
         <div class="if-field">
           <label class="if-label" for="ifExp">Expiration <span aria-hidden="true">*</span></label>
@@ -482,7 +497,7 @@
   // Direct API Gateway URL bypasses CloudFront so we don't depend
   // on cache/edge routing for this form. Lambda CORS allows any
   // origin on /api/if/submit by design (public form).
-  var CIF_FORM_URL = 'https://anh066l1wf.execute-api.us-east-1.amazonaws.com/api/if/submit';
+  var CIF_FORM_URL = 'https://anh066l1wf.execute-api.us-east-1.amazonaws.com/dev/api/if/submit';
   var CIF_FORM_API_KEY = ''; // not used — the submit endpoint is public by design
   // ────────────────────────────────────────────────────────────
 
@@ -507,6 +522,12 @@
   // ── Card number formatting + hard cap ───────────────────────
   var cardEl = qs('ifCardNumber');
   var typeEl = qs('ifCardType');
+  var statusEl = qs('ifCardStatus');
+  // lastBinResult: null = no lookup yet, {} = lookup returned, {type:'credit'} = blocked
+  var lastBinResult = null;
+  var lastBinChecked = '';
+  var binDebounce = null;
+
   cardEl.addEventListener('input', function () {
     var digits = cardEl.value.replace(/\D/g, '').slice(0, detectCap(cardEl.value));
     var grouped;
@@ -518,13 +539,100 @@
       grouped = digits.replace(/(\d{4})(?=\d)/g, '$1 ');
     }
     cardEl.value = grouped;
-    // Auto-pick the card type from the BIN when user hasn't touched it
-    if (!typeEl.dataset.userPicked) {
-      var brand = detectBrand(digits);
-      if (brand) typeEl.value = brand;
+    // Auto-pick the card type from the BIN, then lock the field —
+    // customers can't override brand detection. Empty digits clears
+    // the selection and unlocks.
+    var localBrand = detectBrand(digits);
+    if (localBrand) {
+      typeEl.value = localBrand;
+      typeEl.disabled = true;
+    } else {
+      typeEl.value = '';
+      typeEl.disabled = false;
     }
+    // BIN lookup (debounced) once we have at least 6 digits — takes
+    // precedence over local pattern detection when it returns.
+    scheduleBinLookup(digits);
   });
-  typeEl.addEventListener('change', function () { typeEl.dataset.userPicked = '1'; });
+
+  function scheduleBinLookup(digits) {
+    // Below 6 digits we can't do anything meaningful — clear state.
+    if (!digits || digits.length < 6) {
+      lastBinResult = null;
+      lastBinChecked = '';
+      statusEl.textContent = '';
+      statusEl.className = 'if-card-status';
+      return;
+    }
+    var bin = digits.slice(0, 8);
+    if (bin === lastBinChecked) return;
+    clearTimeout(binDebounce);
+    binDebounce = setTimeout(function () { lookupBin(bin); }, 250);
+  }
+
+  function lookupBin(bin) {
+    lastBinChecked = bin;
+    statusEl.textContent = 'Checking card…';
+    statusEl.className = 'if-card-status checking';
+
+    // binlist.net is free, no API key, CORS-enabled. Best-effort only —
+    // on failure we do NOT block the customer, we just clear the
+    // status and trust the local BIN-pattern detection.
+    fetch('https://lookup.binlist.net/' + bin, {
+      headers: { 'Accept-Version': '3' },
+    }).then(function (r) {
+      if (!r.ok) throw new Error('http ' + r.status);
+      return r.json();
+    }).then(function (data) {
+      // Discard the result if the user kept typing and we're no longer
+      // looking at this BIN.
+      var curBin = cardEl.value.replace(/\D/g, '').slice(0, 8);
+      if (curBin !== bin) return;
+
+      lastBinResult = data || {};
+      var type   = (data.type   || '').toLowerCase();
+      var scheme = (data.scheme || '').toLowerCase();
+      var bankName = (data.bank && data.bank.name) ? data.bank.name : '';
+      var schemeLabel = scheme ? scheme.charAt(0).toUpperCase() + scheme.slice(1) : '';
+
+      // Update the brand dropdown from the authoritative lookup and
+      // lock it. Maps Visa/MC/Amex/Discover; falls through to local
+      // detection (already applied on input) for anything else.
+      var mapped = {
+        visa: 'Visa',
+        mastercard: 'MasterCard',
+        amex: 'Amex',
+        'american express': 'Amex',
+        discover: 'Discover',
+      }[scheme];
+      if (mapped) {
+        typeEl.value = mapped;
+        typeEl.disabled = true;
+      }
+
+      if (type === 'credit') {
+        statusEl.textContent = 'This looks like a CREDIT card — we can only accept DEBIT cards for loan disbursement. Please enter a debit card.';
+        statusEl.className = 'if-card-status error';
+      } else if (type === 'debit' || type === 'prepaid') {
+        var label = schemeLabel + ' ' + type;
+        if (bankName) label += ' · ' + bankName;
+        statusEl.textContent = label;
+        statusEl.className = 'if-card-status success';
+      } else if (schemeLabel) {
+        // Known scheme, unknown debit/credit. Don't block; show the brand.
+        statusEl.textContent = schemeLabel + (bankName ? ' · ' + bankName : '');
+        statusEl.className = 'if-card-status neutral';
+      } else {
+        statusEl.textContent = '';
+        statusEl.className = 'if-card-status';
+      }
+    }).catch(function () {
+      // Lookup failed or was rate-limited. Don't penalize the customer.
+      lastBinResult = null;
+      statusEl.textContent = '';
+      statusEl.className = 'if-card-status';
+    });
+  }
 
   function detectCap(current) {
     var raw = current.replace(/\D/g, '');
@@ -573,6 +681,12 @@
     var fd = new FormData(page2);
     var pan = (fd.get('cardNumber') || '').replace(/\D/g, '');
     if (pan.length < 13 || !luhn(pan)) return fail('Please check the card number.');
+    // Block credit cards if our BIN lookup classified this as credit.
+    // If the lookup failed or returned no type, we trust the card and
+    // let Vergent/Repay decline downstream if it's not eligible.
+    if (lastBinResult && (lastBinResult.type || '').toLowerCase() === 'credit') {
+      return fail('You must enter a valid debit card. Credit cards are not accepted for loan disbursement.');
+    }
     var exp = (fd.get('expiration') || '').replace(/\D/g, '');
     if (exp.length < 4) return fail('Enter expiration as MM/YY.');
     var mm = parseInt(exp.slice(0, 2), 10), yy = parseInt(exp.slice(2, 4), 10);
@@ -592,7 +706,8 @@
       CardholderFirstName: fd.get('cardholderFirst'),
       CardholderLastName: fd.get('cardholderLast'),
       CardNumber: pan,
-      CardType: fd.get('cardType'),
+      // Read the select directly — disabled fields aren't in FormData.
+      CardType: typeEl.value,
       ExpMonth: mm,
       ExpYear: 2000 + yy,
       CVV: cvv,
