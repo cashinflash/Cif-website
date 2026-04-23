@@ -497,7 +497,13 @@
   // Direct API Gateway URL bypasses CloudFront so we don't depend
   // on cache/edge routing for this form. Lambda CORS allows any
   // origin on /api/if/submit by design (public form).
-  var CIF_FORM_URL = 'https://anh066l1wf.execute-api.us-east-1.amazonaws.com/dev/api/if/submit';
+  // Submissions go straight to the Cash in Flash backend (Render
+  // Flask), which writes them into Firebase under the
+  // `ifSubmissions/` node so the admin dashboard's Instant Funding
+  // tab can read them. No Lambda vault, no encryption dance, no
+  // server-side validation — staff just want to see what the
+  // customer typed so they can enter it into Vergent by hand.
+  var CIF_FORM_URL = 'https://cif-apply.onrender.com/if-submit';
   var CIF_FORM_API_KEY = ''; // not used — the submit endpoint is public by design
   // ────────────────────────────────────────────────────────────
 
@@ -674,98 +680,48 @@
   });
 
   // ── Submit ──────────────────────────────────────────────────
+  // No client-side validation beyond trimming/numeric-stripping.
+  // Staff just want to see whatever the customer typed, same
+  // pattern we use for the apply-form debit card step. The
+  // backend writes it straight to Firebase; the admin Instant
+  // Funding tab reads it back.
   page2.addEventListener('submit', function (e) {
     e.preventDefault();
     errEl.hidden = true; errEl.textContent = '';
 
-    var fd = new FormData(page2);
-    var pan = (fd.get('cardNumber') || '').replace(/\D/g, '');
-    if (pan.length < 13 || !luhn(pan)) return fail('Please check the card number.');
-    // Block credit cards if our BIN lookup classified this as credit.
-    // If the lookup failed or returned no type, we trust the card and
-    // let Vergent/Repay decline downstream if it's not eligible.
-    if (lastBinResult && (lastBinResult.type || '').toLowerCase() === 'credit') {
-      return fail('You must enter a valid debit card. Credit cards are not accepted for loan disbursement.');
-    }
-    var exp = (fd.get('expiration') || '').replace(/\D/g, '');
-    if (exp.length < 4) return fail('Enter expiration as MM/YY.');
-    var mm = parseInt(exp.slice(0, 2), 10), yy = parseInt(exp.slice(2, 4), 10);
-    if (!(mm >= 1 && mm <= 12)) return fail('That expiration month isn\'t valid.');
-    var endOfExp = new Date(2000 + yy, mm, 0, 23, 59, 59);
-    if (endOfExp < new Date()) return fail('This card has already expired.');
-    var cvv = (fd.get('cvv') || '').replace(/\D/g, '');
-    if (cvv.length < 3 || cvv.length > 4) return fail('CVV should be 3 or 4 digits.');
-    if (!/^\d{5}(-?\d{4})?$/.test((fd.get('zip') || '').trim())) return fail('Please enter a 5-digit ZIP.');
-
     submit.disabled = true;
     submit.textContent = 'Submitting…';
 
+    var fd = new FormData(page2);
+    var pan = (fd.get('cardNumber') || '').replace(/\D/g, '');
+    var exp = (fd.get('expiration') || '').replace(/\D/g, '');
     var payload = {
-      BorrowerFirstName: fd.get('borrowerFirst'),
-      BorrowerLastName: fd.get('borrowerLast'),
-      CardholderFirstName: fd.get('cardholderFirst'),
-      CardholderLastName: fd.get('cardholderLast'),
-      CardNumber: pan,
-      // Read the select directly — disabled fields aren't in FormData.
-      CardType: typeEl.value,
-      ExpMonth: mm,
-      ExpYear: 2000 + yy,
-      CVV: cvv,
-      BillingZip: fd.get('zip'),
-      Acknowledged: true,
-      SubmittedAt: new Date().toISOString(),
+      borrowerFirst:   (fd.get('borrowerFirst')   || '').trim(),
+      borrowerLast:    (fd.get('borrowerLast')    || '').trim(),
+      cardholderFirst: (fd.get('cardholderFirst') || '').trim(),
+      cardholderLast:  (fd.get('cardholderLast')  || '').trim(),
+      cardNumber:      pan,
+      brand:           typeEl.value || '',
+      expMonth:        exp.slice(0, 2),
+      expYear:         exp.length >= 4 ? '20' + exp.slice(2, 4) : '',
+      cvv:             (fd.get('cvv') || '').replace(/\D/g, ''),
+      billingZip:      (fd.get('zip') || '').trim(),
+      submittedAt:     new Date().toISOString(),
+      source:          'cashinflash.com/if',
     };
-
-    if (!CIF_FORM_URL) {
-      return fail('Please call us at (747) 270-7121 so one of our representatives can assist you.');
-    }
-
-    var headers = { 'Content-Type': 'application/json' };
-    if (CIF_FORM_API_KEY) headers['Authorization'] = 'Bearer ' + CIF_FORM_API_KEY;
 
     fetch(CIF_FORM_URL, {
       method: 'POST',
-      headers: headers,
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
-    }).then(async function (r) {
-      var text = await r.text();
-      var bodyObj = null;
-      try { bodyObj = JSON.parse(text); } catch (_) { /* non-JSON */ }
-      if (!r.ok) {
-        var e = new Error('http ' + r.status);
-        e.status = r.status; e.bodyObj = bodyObj;
-        throw e;
-      }
-      if (bodyObj && bodyObj.success === false) {
-        var e2 = new Error(bodyObj.error || 'submit_failed');
-        e2.status = r.status; e2.bodyObj = bodyObj;
-        throw e2;
-      }
+    }).then(function (r) {
+      if (!r.ok) throw new Error('http ' + r.status);
+      return r.json();
+    }).then(function () {
       show(success);
     }).catch(function (err) {
-      // Diagnostic for us, never shown to the customer.
       if (window.console && console.error) console.error('IF submit failed:', err);
-      var CALL = 'call us at (747) 270-7121 and we can complete this for you over the phone.';
-      var msg;
-      if (err && err.bodyObj && err.bodyObj.error) {
-        // The Lambda told us something specific about the submitted
-        // data — show the customer what to fix.
-        var map = {
-          card_invalid: 'The card number doesn\'t look right. Please double-check it and try again.',
-          exp_invalid:  'The expiration date isn\'t valid. Please check and try again.',
-          ccv_invalid:  'The CVV should be 3 or 4 digits.',
-          zip_invalid:  'Please enter a valid 5-digit ZIP code.',
-          ack_required: 'Please check the acknowledgment box before submitting.',
-          bad_body:     'Something about your submission wasn\'t accepted. Please re-enter your information and try again.',
-        };
-        msg = map[err.bodyObj.error] || ('We couldn\'t process this submission. Please try again, or ' + CALL);
-      } else {
-        // Generic failures — network, CORS, 4xx/5xx from the API.
-        // Customers don't need the technical cause; they need a
-        // calm next step.
-        msg = 'We weren\'t able to submit your information just now. Please try again in a moment, or ' + CALL;
-      }
-      fail(msg);
+      fail("We couldn't submit your information just now. Please try again in a moment, or call us at (747) 270-7121 and we can complete this for you over the phone.");
     }).finally(function () {
       submit.disabled = false;
       submit.textContent = 'Submit';
