@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Cash in Flash · Instagram Posts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  body { background: #f5f6f8; }
+  .header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 24px 0;
+  }
+  .header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #0E8741, #0a8f3f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .header p { color: #555; font-size: 18px; margin-top: 8px; max-width: 720px; }
+  .header .meta {
+    margin-top: 14px;
+    font-size: 14px;
+    color: #888;
+  }
+  .feed-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    background: #fff;
+    padding: 4px;
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0,0,0,.08);
+  }
+  .tile {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #eee;
+  }
+  .tile iframe {
+    width: 1080px;
+    height: 1080px;
+    border: 0;
+    transform: scale(0.3315);
+    transform-origin: top left;
+    pointer-events: none;
+  }
+  .tile a {
+    position: absolute;
+    inset: 0;
+    display: block;
+    z-index: 4;
+    background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.55) 100%);
+    color: #fff;
+    text-decoration: none;
+    transition: opacity .2s;
+  }
+  .tile a:hover { background: linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.65) 100%); }
+  .tile .num {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: rgba(0,0,0,.65);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: .5px;
+    backdrop-filter: blur(6px);
+  }
+  .tile .label {
+    position: absolute;
+    bottom: 12px; left: 14px; right: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: .3px;
+  }
+  .grid-wrap {
+    max-width: 1200px;
+    margin: 32px auto 80px;
+    padding: 0 24px;
+  }
+  .legend {
+    margin: 24px 0 0;
+    color: #888;
+    font-size: 13px;
+  }
+  .legend code {
+    background: #efefef;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Cash in Flash · Instagram Feed</h1>
+  <p>Twelve launch-ready posts designed in the brand's website language: Poppins, mint &amp; navy, glassmorphism, and that signature green gradient.</p>
+  <div class="meta">1080×1080 · Click any tile to view full size · See <code>captions.md</code> for copy &amp; hashtags</div>
+</div>
+
+<div class="grid-wrap">
+  <div class="feed-row">
+    <div class="tile">
+      <iframe src="post-01-welcome.html" loading="lazy"></iframe>
+      <a href="post-01-welcome.html" target="_blank"><span class="num">01</span><span class="label">Welcome</span></a>
+    </div>
+    <div class="tile">
+      <iframe src="post-02-fast-cash.html" loading="lazy"></iframe>
+      <a href="post-02-fast-cash.html" target="_blank"><span class="num">02</span><span class="label">Need cash today?</span></a>
+    </div>
+    <div class="tile">
+      <iframe src="post-03-how-it-works.html" loading="lazy"></iframe>
+      <a href="post-03-how-it-works.html" target="_blank"><span class="num">03</span><span class="label">How it works</span></a>
+    </div>
+
+    <div class="tile">
+      <iframe src="post-04-loan-range.html" loading="lazy"></iframe>
+      <a href="post-04-loan-range.html" target="_blank"><span class="num">04</span><span class="label">$100 – $255</span></a>
+    </div>
+    <div class="tile">
+      <iframe src="post-05-same-day-funding.html" loading="lazy"></iframe>
+      <a href="post-05-same-day-funding.html" target="_blank"><span class="num">05</span><span class="label">Same-day funding</span></a>
+    </div>
+    <div class="tile">
+      <iframe src="post-06-western-union.html" loading="lazy"></iframe>
+      <a href="post-06-western-union.html" target="_blank"><span class="num">06</span><span class="label">Western Union</span></a>
+    </div>
+
+    <div class="tile">
+      <iframe src="post-07-testimonial.html" loading="lazy"></iframe>
+      <a href="post-07-testimonial.html" target="_blank"><span class="num">07</span><span class="label">Testimonial</span></a>
+    </div>
+    <div class="tile">
+      <iframe src="post-08-no-perfect-credit.html" loading="lazy"></iframe>
+      <a href="post-08-no-perfect-credit.html" target="_blank"><span class="num">08</span><span class="label">No perfect credit</span></a>
+    </div>
+    <div class="tile">
+      <iframe src="post-09-five-minute-apply.html" loading="lazy"></iframe>
+      <a href="post-09-five-minute-apply.html" target="_blank"><span class="num">09</span><span class="label">5-minute apply</span></a>
+    </div>
+
+    <div class="tile">
+      <iframe src="post-10-locations.html" loading="lazy"></iframe>
+      <a href="post-10-locations.html" target="_blank"><span class="num">10</span><span class="label">Locations</span></a>
+    </div>
+    <div class="tile">
+      <iframe src="post-11-money-tip.html" loading="lazy"></iframe>
+      <a href="post-11-money-tip.html" target="_blank"><span class="num">11</span><span class="label">Money tip</span></a>
+    </div>
+    <div class="tile">
+      <iframe src="post-12-apply-now-cta.html" loading="lazy"></iframe>
+      <a href="post-12-apply-now-cta.html" target="_blank"><span class="num">12</span><span class="label">Apply now</span></a>
+    </div>
+  </div>
+
+  <p class="legend">
+    Tip: open any post in a new tab and screenshot at 1080×1080 to upload to Instagram. The
+    iframe scaling is for preview only — the source files render at full social-post resolution.
+  </p>
+</div>
+
+</body>
+</html>
