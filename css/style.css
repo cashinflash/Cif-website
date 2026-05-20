@@ -2,28 +2,21 @@
    CASH IN FLASH — MAIN STYLESHEET
    ═══════════════════════════════════════ */
 
-/* ---------- SELF-HOSTED POPPINS ---------- */
-/* latin subset (covers English + basic accents) */
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/poppins-400.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/poppins-500.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/poppins-600.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/poppins-700.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 800; font-display: swap; src: url('/fonts/poppins-800.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-/* latin-ext (Spanish ñ/á/é/etc., other European accents) */
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/poppins-400-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/poppins-500-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/poppins-600-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/poppins-700-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 800; font-display: swap; src: url('/fonts/poppins-800-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+/* ---------- SELF-HOSTED EUCLID CIRCULAR B ---------- */
+@font-face { font-family: 'Euclid Circular B'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/euclid-400.woff2') format('woff2'); }
+@font-face { font-family: 'Euclid Circular B'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/euclid-500.woff2') format('woff2'); }
+@font-face { font-family: 'Euclid Circular B'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/euclid-600.woff2') format('woff2'); }
+@font-face { font-family: 'Euclid Circular B'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/euclid-700.woff2') format('woff2'); }
 
 /* ---------- RESET & BASE ---------- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Euclid Circular B', sans-serif;
   color: #1a1a2e;
   background: #fff;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
   min-height: 100vh;
@@ -450,7 +443,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   gap: 48px;
   align-items: center;
 }
-.hero h1, .page-hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+.hero h1, .page-hero h1 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 700; line-height: 1.15; margin-bottom: 16px; }
 .hero-subtitle { font-size: 1.15rem; color: #555; margin-bottom: 24px; }
 .hero-checks { margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
 .hero-checks li {
@@ -495,7 +488,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   align-items: center;
   justify-content: center;
   font-size: 1.75rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #000;
   flex-shrink: 0;
 }
@@ -897,7 +890,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 }
 .app-promo h2 {
   font-size: clamp(2rem, 5vw, 2.75rem);
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 16px;
   line-height: 1.2;
 }
@@ -1329,7 +1322,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 }
 .calc-amount {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #0E8741;
   text-align: center;
   margin-bottom: 8px;
@@ -1501,7 +1494,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 }
 .composite-heading {
   font-size: 1.3rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 16px;
   line-height: 1.2;
@@ -1523,7 +1516,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
 }
 .composite-amount {
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #1a1a2e;
   margin-bottom: 14px;
 }
@@ -1727,7 +1720,7 @@ input { font-family: inherit; font-size: 16px; /* prevents iOS zoom on focus */ 
   justify-content: center;
   margin: 0 auto 16px;
 }
-.about-stat-card h3 { font-size: 1.5rem; font-weight: 800; color: #0E8741; margin-bottom: 8px; }
+.about-stat-card h3 { font-size: 1.5rem; font-weight: 700; color: #0E8741; margin-bottom: 8px; }
 .about-stat-card p { color: #555; font-size: .9rem; }
 
 .about-testimonials { padding: 80px 0; }
