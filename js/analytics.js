@@ -21,6 +21,8 @@
     window.gtag = function () { window.dataLayer.push(arguments); };
   }
 
+  var fb = typeof window.fbq === 'function' ? window.fbq : function () {};
+
   var APPLY_VALUE = 25;      // estimated value of a lead click in USD
   var FORM_VALUE = 40;       // estimated value of a form submit
 
@@ -71,6 +73,7 @@
         event_label: href.replace('tel:', ''),
         phone_number: href.replace('tel:', '')
       });
+      fb('track', 'Contact', { content_name: 'Phone Call' });
       return;
     }
 
@@ -86,6 +89,7 @@
         link_url: href,
         page_path: path
       });
+      fb('track', 'Lead', { content_name: 'Apply Now', currency: 'USD', value: APPLY_VALUE });
       return;
     }
 
@@ -131,6 +135,11 @@
       value: isContact ? FORM_VALUE : 0,
       currency: 'USD',
       page_path: path
+    });
+    fb('track', 'SubmitApplication', {
+      content_name: isContact ? 'Contact Form' : (isNewsletter ? 'Newsletter' : formName),
+      currency: 'USD',
+      value: isContact ? FORM_VALUE : 0
     });
   }, { passive: true });
 
