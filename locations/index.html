@@ -193,29 +193,7 @@
 <!-- ══════════════════════════════════════ -->
 <section class="locations-map">
   <div class="container">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-    <div id="store-map" style="width:100%;height:450px;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,.08);z-index:0"></div>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-    <script>
-    (function(){
-      var map=L.map('store-map',{scrollWheelZoom:false}).setView([34.22,-118.50],12);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{
-        maxZoom:20,
-        attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-        subdomains:'abcd'
-      }).addTo(map);
-      var pin=L.divIcon({
-        className:'',
-        html:'<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40"><path d="M15 0C6.7 0 0 6.7 0 15c0 11.3 15 25 15 25s15-13.7 15-25C30 6.7 23.3 0 15 0z" fill="#0E8741"/><circle cx="15" cy="14" r="6" fill="#fff"/></svg>',
-        iconSize:[30,40],iconAnchor:[15,40],popupAnchor:[0,-36]
-      });
-      L.marker([34.2358,-118.4398],{icon:pin}).addTo(map)
-        .bindPopup('<strong>Cash in Flash &mdash; Arleta</strong><br>13937B Van Nuys Blvd<br>Arleta, CA 91331');
-      L.marker([34.1977,-118.5714],{icon:pin}).addTo(map)
-        .bindPopup('<strong>Cash in Flash &mdash; Winnetka</strong><br>20050 Vanowen St, Unit E<br>Winnetka, CA 91306');
-      map.fitBounds([[34.2358,-118.4398],[34.1977,-118.5714]],{padding:[60,60]});
-    })();
-    </script>
+    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1fMhQ0-pakMRLms5oUWIRe2RqnpAZajQ&ehbc=2E312F&noprof=1" allowfullscreen="" loading="lazy" title="Cash in Flash Store Locations"></iframe>
   </div>
 </section>
 
