@@ -193,7 +193,28 @@
 <!-- ══════════════════════════════════════ -->
 <section class="locations-map">
   <div class="container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d53000!2d-118.505!3d34.22!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s!2s13937B+Van+Nuys+Blvd%2C+Arleta%2C+CA+91331!3m2!1d34.24!2d-118.44!4m5!1s!2s20050+Vanowen+St%2C+Unit+E%2C+Winnetka%2C+CA+91306!3m2!1d34.20!2d-118.57!5e0!3m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Cash in Flash Store Locations"></iframe>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+    <div id="store-map" style="width:100%;height:450px;border-radius:16px;box-shadow:0 2px 16px rgba(0,0,0,.08);z-index:0"></div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    <script>
+    (function(){
+      var map=L.map('store-map',{scrollWheelZoom:false}).setView([34.22,-118.50],12);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{
+        maxZoom:19,
+        attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+      var pin=L.divIcon({
+        className:'',
+        html:'<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40"><path d="M15 0C6.7 0 0 6.7 0 15c0 11.3 15 25 15 25s15-13.7 15-25C30 6.7 23.3 0 15 0z" fill="#0E8741"/><circle cx="15" cy="14" r="6" fill="#fff"/></svg>',
+        iconSize:[30,40],iconAnchor:[15,40],popupAnchor:[0,-36]
+      });
+      L.marker([34.2358,-118.4398],{icon:pin}).addTo(map)
+        .bindPopup('<strong>Cash in Flash &mdash; Arleta</strong><br>13937B Van Nuys Blvd<br>Arleta, CA 91331');
+      L.marker([34.1977,-118.5714],{icon:pin}).addTo(map)
+        .bindPopup('<strong>Cash in Flash &mdash; Winnetka</strong><br>20050 Vanowen St, Unit E<br>Winnetka, CA 91306');
+      map.fitBounds([[34.2358,-118.4398],[34.1977,-118.5714]],{padding:[60,60]});
+    })();
+    </script>
   </div>
 </section>
 
