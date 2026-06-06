@@ -58,6 +58,19 @@
     }
   }
 
+  // ─── Pass UTM params to apply.cashinflash.com links ───────────────────
+  var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  var currentParams = new URLSearchParams(window.location.search);
+  var utmStr = utmKeys.filter(function(k){ return currentParams.get(k); })
+    .map(function(k){ return k + '=' + encodeURIComponent(currentParams.get(k)); }).join('&');
+
+  if (utmStr) {
+    document.querySelectorAll('a[href*="apply.cashinflash.com"]').forEach(function(link) {
+      var h = link.getAttribute('href');
+      link.setAttribute('href', h + (h.indexOf('?') === -1 ? '?' : '&') + utmStr);
+    });
+  }
+
   // ─── Delegated click listener ────────────────────────────────────────
   document.addEventListener('click', function (e) {
     var a = e.target.closest('a');
