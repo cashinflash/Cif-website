@@ -34,7 +34,7 @@
   <meta name="twitter:title" content="Contact Us">
   <meta name="twitter:description" content="Contact Cash in Flash by phone, email, or visit us in person. We">
   <meta name="twitter:image" content="https://cashinflash.com/images/og-default.png">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","@id":"https://cashinflash.com/#organization","name":"Cash in Flash","alternateName":"Cash in Flash California","url":"https://cashinflash.com","logo":"https://cashinflash.com/images/white_logo_350.png","image":"https://cashinflash.com/images/og-default.png","description":"Licensed California payday loan and cash advance lender offering fast, same-day funding from $100 to $255.","telephone":"+1-747-270-7121","email":"info@cashinflash.com","areaServed":{"@type":"State","name":"California"},"sameAs":["https://www.facebook.com/cashinflash","https://www.instagram.com/cashinflash","https://twitter.com/cashinflash"],"priceRange":"$100-$255","contactPoint":{"@type":"ContactPoint","telephone":"+1-747-270-7121","contactType":"Customer Service","areaServed":"US-CA","availableLanguage":["English","Spanish"]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FinancialService","@id":"https://cashinflash.com/#organization","name":"Cash in Flash","alternateName":"Cash in Flash California","url":"https://cashinflash.com","logo":"https://cashinflash.com/images/white_logo_350.png","image":"https://cashinflash.com/images/og-default.png","description":"Licensed California payday loan and cash advance lender offering fast, same-day funding from $100 to $255.","telephone":"+1-888-999-9859","email":"info@cashinflash.com","areaServed":{"@type":"State","name":"California"},"sameAs":["https://www.facebook.com/cashinflash","https://www.instagram.com/cashinflash","https://twitter.com/cashinflash"],"priceRange":"$100-$255","contactPoint":{"@type":"ContactPoint","telephone":"+1-888-999-9859","contactType":"Customer Service","areaServed":"US-CA","availableLanguage":["English","Spanish"]}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cashinflash.com/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://cashinflash.com/if/"}]}</script>
   <!-- Google tag (gtag.js) -->
     <script>
@@ -334,7 +334,7 @@
 
       <div class="if-field">
         <label class="if-label" for="ifCardNumber">Debit card number <span aria-hidden="true">*</span></label>
-        <input type="text" id="ifCardNumber" name="cardNumber" inputmode="numeric" autocomplete="cc-number" required maxlength="19" placeholder="1234 5678 9012 3456">
+        <input type="text" id="ifCardNumber" name="cardNumber" inputmode="numeric" autocomplete="cc-number" required maxlength="16" placeholder="1234567890123456">
         <small class="if-card-status" id="ifCardStatus" aria-live="polite"></small>
       </div>
 
@@ -387,13 +387,13 @@
           <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg>
         </span>
         <h2>Thanks — we got it.</h2>
-        <p>Your debit card information was submitted securely. A Cash in Flash representative will reach out shortly to complete your funding. Questions in the meantime? Call us at <a href="tel:+17472707121">(747) 270-7121</a>.</p>
+        <p>Your debit card information was submitted securely. A Cash in Flash representative will reach out shortly to complete your funding. Questions in the meantime? Call us at <a href="tel:+18889999859">(888) 999-9859</a>.</p>
       </div>
     </div>
 
     <!-- Help footer -->
     <p style="text-align:center;color:#5a6a65;font-size:.88rem;margin:20px 0 0;">
-      Questions before submitting? Call us at <a href="tel:+17472707121" style="color:#0E8741;font-weight:600;text-decoration:none;">(747) 270-7121</a> or visit <a href="/locations/" style="color:#0E8741;font-weight:600;text-decoration:none;">any Cash in Flash location</a>.
+      Questions before submitting? Call us at <a href="tel:+18889999859" style="color:#0E8741;font-weight:600;text-decoration:none;">(888) 999-9859</a> or visit <a href="/locations/" style="color:#0E8741;font-weight:600;text-decoration:none;">any Cash in Flash location</a>.
     </p>
 
   </div>
@@ -549,15 +549,8 @@
 
   cardEl.addEventListener('input', function () {
     var digits = cardEl.value.replace(/\D/g, '').slice(0, detectCap(cardEl.value));
-    var grouped;
-    if (detectBrand(digits) === 'Amex') {
-      grouped = (digits.slice(0, 4)
-        + (digits.length > 4 ? ' ' + digits.slice(4, 10) : '')
-        + (digits.length > 10 ? ' ' + digits.slice(10, 15) : '')).trim();
-    } else {
-      grouped = digits.replace(/(\d{4})(?=\d)/g, '$1 ');
-    }
-    cardEl.value = grouped;
+    // Show the raw digits with no spaces / no group formatting.
+    cardEl.value = digits;
     // Auto-pick the card type from the BIN, then lock the field —
     // customers can't override brand detection. Empty digits clears
     // the selection and unlocks.
@@ -723,6 +716,16 @@
       source:          'cashinflash.com/if',
     };
 
+    // Optional pass-throughs so the backend can link this submission to
+    // the right Vergent customer. Read from the page URL, e.g.
+    // /if?fb=ABC123&cid=42. Both are optional — when absent they are
+    // omitted entirely and the form still works for direct visitors.
+    var qp = new URLSearchParams(window.location.search);
+    var fbId = (qp.get('fb') || '').trim();
+    var custId = (qp.get('cid') || '').trim();
+    if (fbId) payload.firebase_id = fbId;
+    if (custId) payload.vergent_customer_id = custId;
+
     fetch(CIF_FORM_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -734,7 +737,7 @@
       show(success);
     }).catch(function (err) {
       if (window.console && console.error) console.error('IF submit failed:', err);
-      fail("We couldn't submit your information just now. Please try again in a moment, or call us at (747) 270-7121 and we can complete this for you over the phone.");
+      fail("We couldn't submit your information just now. Please try again in a moment, or call us at (888) 999-9859 and we can complete this for you over the phone.");
     }).finally(function () {
       submit.disabled = false;
       submit.textContent = 'Submit';
