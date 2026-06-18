@@ -20,31 +20,25 @@
 # X-Frame-Options = "SAMEORIGIN" plus CSP "frame-ancestors 'self'",
 # which makes Chrome refuse to load the page with
 # ERR_BLOCKED_BY_RESPONSE when an email's in-app webview embeds it.
-# These more-specific rules override those two headers for /if ONLY:
-#   - X-Frame-Options "ALLOWALL" is a non-standard token, so browsers
-#     ignore it (X-Frame-Options can't be unset in netlify.toml, only
-#     overridden) — effectively removing the XFO framing restriction.
-#   - The CSP is re-declared identically but WITHOUT frame-ancestors,
-#     so framing is no longer restricted for this route.
-# All other security headers (HSTS, nosniff, Referrer-Policy,
-# Permissions-Policy, COOP) are inherited unchanged from the /* rule.
-[[headers]]
-  for = "/if"
-  [headers.values]
-    X-Frame-Options = "ALLOWALL"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com https://maps.gstatic.com https://maps.googleapis.com; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://anh066l1wf.execute-api.us-east-1.amazonaws.com https://lookup.binlist.net https://cif-apply.onrender.com; frame-src https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self' https://formsubmit.co;"
+#
+# Per-path [[headers]] rules do NOT replace these for nested paths —
+# Netlify APPENDS a second value, so the restrictive SAMEORIGIN /
+# frame-ancestors 'self' still wins. The reliable fix is the edge
+# function below (netlify/edge-functions/if-framing.js), which runs
+# after the static headers are applied and truly removes X-Frame-Options
+# and strips the frame-ancestors directive from the CSP for /if only.
+# Every other security header (and every other route) is left intact.
+[[edge_functions]]
+  path = "/if"
+  function = "if-framing"
 
-[[headers]]
-  for = "/if/"
-  [headers.values]
-    X-Frame-Options = "ALLOWALL"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com https://maps.gstatic.com https://maps.googleapis.com; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://anh066l1wf.execute-api.us-east-1.amazonaws.com https://lookup.binlist.net https://cif-apply.onrender.com; frame-src https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self' https://formsubmit.co;"
+[[edge_functions]]
+  path = "/if/"
+  function = "if-framing"
 
-[[headers]]
-  for = "/if/*"
-  [headers.values]
-    X-Frame-Options = "ALLOWALL"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com https://maps.gstatic.com https://maps.googleapis.com; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.googletagmanager.com https://anh066l1wf.execute-api.us-east-1.amazonaws.com https://lookup.binlist.net https://cif-apply.onrender.com; frame-src https://www.google.com https://maps.google.com; base-uri 'self'; form-action 'self' https://formsubmit.co;"
+[[edge_functions]]
+  path = "/if/*"
+  function = "if-framing"
 
 # Long-cache static assets (hashed URLs not needed; these rarely change)
 [[headers]]
