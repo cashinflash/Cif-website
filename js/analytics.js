@@ -107,7 +107,7 @@
     }
 
     // Login click — separate from apply
-    if (/\bbtn-login\b/.test(cls) || href.indexOf('vergentlms.com') !== -1) {
+    if (/\bbtn-login\b/.test(cls) || href.indexOf('my.cashinflash.com') !== -1 || href.indexOf('vergentlms.com') !== -1) {
       gtag('event', 'login_click', {
         event_category: 'engagement',
         event_label: 'Customer Login',
