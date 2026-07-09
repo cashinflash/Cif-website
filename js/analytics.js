@@ -102,7 +102,10 @@
         link_url: href,
         page_path: path
       });
-      fb('track', 'Lead', { content_name: 'Apply Now', currency: 'USD', value: APPLY_VALUE });
+      // No Meta event on click-out: the beacon is killed by the
+      // immediate navigation (measured: 2 delivered in a month), and
+      // 'lead' is now a CRM funnel stage sent server-side by cif-apply.
+      // Meta sees the click-through as PageView on apply.cashinflash.com.
       return;
     }
 
@@ -149,11 +152,14 @@
       currency: 'USD',
       page_path: path
     });
-    fb('track', 'SubmitApplication', {
-      content_name: isContact ? 'Contact Form' : (isNewsletter ? 'Newsletter' : formName),
-      currency: 'USD',
-      value: isContact ? FORM_VALUE : 0
-    });
+    // Meta: ONLY the contact form sends an event, and it's 'Contact' —
+    // NEVER 'SubmitApplication'. That name is reserved exclusively for
+    // real loan applications on apply.cashinflash.com (it's what the ad
+    // set optimizes on); website contact/newsletter//if submits firing
+    // it would pollute the optimization signal with non-applications.
+    if (isContact) {
+      fb('track', 'Contact', { content_name: 'Contact Form' });
+    }
   }, { passive: true });
 
   // ─── Optional: scroll-depth milestones (25/50/75/100%) ───────────────
