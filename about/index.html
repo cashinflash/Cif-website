@@ -59,6 +59,10 @@
       ['scroll','mousemove','touchstart','keydown','pointerdown'].forEach(function(e){
         window.addEventListener(e,load,{once:true,passive:true});
       });
+      // Fallback: also load after 3s so visitors who never interact
+      // (quick bounces) are still measured. Without this, GA silently
+      // drops them and undercounts sessions vs reality / Meta Pixel.
+      setTimeout(load,3000);
     })();
   </script>
   <script src="/js/main.js" defer></script>
